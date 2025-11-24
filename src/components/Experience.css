@@ -1,0 +1,156 @@
+.experience {
+  background: var(--bg-primary);
+  padding: 100px var(--space-3xl);
+}
+
+.experience .section-title {
+  text-align: center;
+}
+
+.experience-timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: var(--space-xl);
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: var(--space-lg);
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: calc(-1 * var(--space-xl) - 6px);
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 2px solid var(--bg-primary);
+  z-index: 2;
+}
+
+.experience-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all var(--timing-normal) var(--ease-smooth);
+}
+
+.experience-card:hover {
+  transform: translateX(8px);
+  border-color: rgba(0, 255, 135, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.exp-date {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(0, 255, 135, 0.1);
+  border: 1px solid rgba(0, 255, 135, 0.3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-caption);
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-sm);
+}
+
+.exp-title {
+  font-size: var(--font-h4);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-xs);
+}
+
+.exp-company {
+  font-size: var(--font-body-lg);
+  font-weight: 400;
+  color: var(--text-dim);
+  margin-bottom: var(--space-md);
+}
+
+.exp-description {
+  font-size: var(--font-body);
+  line-height: 1.8;
+  color: var(--text-dim);
+  margin-bottom: var(--space-md);
+}
+
+.exp-achievements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.exp-achievements li {
+  position: relative;
+  padding-left: var(--space-md);
+  font-size: var(--font-body);
+  line-height: 1.8;
+  color: var(--text-dim);
+  margin-bottom: var(--space-xs);
+}
+
+.exp-achievements li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.exp-achievements li:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .experience {
+    padding: 80px var(--space-md);
+  }
+
+  .experience-timeline {
+    padding-left: var(--space-md);
+  }
+
+  .timeline-dot {
+    left: calc(-1 * var(--space-md) - 6px);
+  }
+
+  .experience-card {
+    padding: var(--space-md);
+  }
+
+  .experience-card:hover {
+    transform: translateX(4px);
+  }
+
+  .exp-title {
+    font-size: var(--font-body-lg);
+  }
+
+  .exp-company {
+    font-size: var(--font-body);
+  }
+}

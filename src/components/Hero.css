@@ -1,0 +1,232 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 120px var(--space-3xl) 100px;
+  overflow: hidden;
+}
+
+.hero-decorations {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.deco-icon {
+  position: absolute;
+  color: var(--primary);
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 135, 0.3));
+  transition: all 0.3s ease;
+}
+
+.deco-icon:hover {
+  opacity: 0.6;
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 20px rgba(0, 255, 135, 0.6));
+}
+
+.deco-globe {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.deco-code {
+  top: 20%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.deco-git {
+  bottom: 25%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+.deco-box {
+  bottom: 20%;
+  left: 8%;
+  animation-delay: 1.5s;
+}
+
+.hero-content {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-image-wrapper {
+  margin-bottom: var(--space-2xl);
+  position: relative;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--primary);
+  box-shadow: 0 0 30px rgba(0, 255, 135, 0.4), 0 0 60px rgba(0, 255, 135, 0.2);
+  animation: fadeIn var(--timing-slower) var(--ease-smooth);
+  transition: all var(--timing-normal) var(--ease-smooth);
+}
+
+.hero-image-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(0, 255, 135, 0.5), 0 0 80px rgba(0, 255, 135, 0.3);
+}
+
+.hero-image-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle, rgba(0, 255, 135, 0.3), transparent 70%);
+  animation: pulseGlow 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.hero-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-title {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text);
+  margin-bottom: var(--space-3xl);
+  animation: fadeInUp var(--timing-slow) var(--ease-smooth) 0.3s backwards;
+}
+
+.hero-text-line {
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.text-underline {
+  position: relative;
+  display: inline-block;
+  color: var(--text);
+}
+
+.text-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 3px;
+  background: var(--primary);
+  animation: expandWidth 0.8s ease-out 0.8s backwards;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--text-dim);
+  font-size: var(--font-body-sm);
+  animation: fadeIn var(--timing-slow) var(--ease-smooth) 1s backwards;
+  cursor: pointer;
+  transition: all var(--timing-normal) var(--ease-smooth), opacity 0.5s ease;
+  opacity: 1;
+}
+
+.scroll-indicator:hover {
+  color: var(--primary);
+  transform: translateY(5px);
+}
+
+.scroll-indicator svg {
+  color: var(--primary);
+  animation: bounce 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 135, 0.5));
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(15px);
+    opacity: 0.7;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .deco-icon {
+    opacity: 0.2;
+  }
+
+  .deco-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .hero {
+    padding: var(--space-3xl) var(--space-md);
+  }
+
+  .hero-image-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-title {
+    font-size: 20px;
+  }
+
+  .hero-text-line {
+    margin-bottom: var(--space-xs);
+  }
+
+  .deco-icon {
+    display: none;
+  }
+}

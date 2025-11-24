@@ -1,0 +1,48 @@
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0A0A0A"/>
+  <rect x="1" y="1" width="798" height="448" stroke="#00FF87" stroke-width="2"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid3" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00FF87" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#grid3)"/>
+  
+  <!-- AI Brain/Network -->
+  <g transform="translate(400, 200)">
+    <!-- Central node -->
+    <circle cx="0" cy="0" r="25" fill="#00FF87" opacity="0.3"/>
+    <circle cx="0" cy="0" r="15" fill="#00FF87" opacity="0.6"/>
+    <text x="0" y="5" font-family="Arial" font-size="14" fill="#0A0A0A" text-anchor="middle" font-weight="700">AI</text>
+    
+    <!-- Surrounding nodes -->
+    <circle cx="-70" cy="-50" r="15" fill="none" stroke="#00FF87" stroke-width="2"/>
+    <circle cx="70" cy="-50" r="15" fill="none" stroke="#00FF87" stroke-width="2"/>
+    <circle cx="-70" cy="50" r="15" fill="none" stroke="#00FF87" stroke-width="2"/>
+    <circle cx="70" cy="50" r="15" fill="none" stroke="#00FF87" stroke-width="2"/>
+    <circle cx="0" cy="-80" r="15" fill="none" stroke="#00FF87" stroke-width="2"/>
+    <circle cx="0" cy="80" r="15" fill="none" stroke="#00FF87" stroke-width="2"/>
+    
+    <!-- Connection lines -->
+    <line x1="0" y1="0" x2="-70" y2="-50" stroke="#00FF87" stroke-width="1.5" opacity="0.5"/>
+    <line x1="0" y1="0" x2="70" y2="-50" stroke="#00FF87" stroke-width="1.5" opacity="0.5"/>
+    <line x1="0" y1="0" x2="-70" y2="50" stroke="#00FF87" stroke-width="1.5" opacity="0.5"/>
+    <line x1="0" y1="0" x2="70" y2="50" stroke="#00FF87" stroke-width="1.5" opacity="0.5"/>
+    <line x1="0" y1="0" x2="0" y2="-80" stroke="#00FF87" stroke-width="1.5" opacity="0.5"/>
+    <line x1="0" y1="0" x2="0" y2="80" stroke="#00FF87" stroke-width="1.5" opacity="0.5"/>
+    
+    <!-- Data symbols -->
+    <text x="-70" y="-45" font-family="Arial" font-size="10" fill="#00FF87" text-anchor="middle">📄</text>
+    <text x="70" y="-45" font-family="Arial" font-size="10" fill="#00FF87" text-anchor="middle">🔍</text>
+    <text x="-70" y="55" font-family="Arial" font-size="10" fill="#00FF87" text-anchor="middle">💾</text>
+    <text x="70" y="55" font-family="Arial" font-size="10" fill="#00FF87" text-anchor="middle">⚡</text>
+  </g>
+  
+  <!-- Text -->
+  <text x="400" y="330" font-family="Arial, sans-serif" font-size="28" font-weight="700" 
+        fill="#00FF87" text-anchor="middle">AI/ML RAG MODELS</text>
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="14" 
+        fill="#666" text-anchor="middle">Multi-agent • Vector DB • Prompt Engineering • LangChain</text>
+</svg>

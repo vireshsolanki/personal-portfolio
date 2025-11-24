@@ -1,0 +1,30 @@
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#0A0A0A"/>
+  <rect x="1" y="1" width="798" height="448" stroke="#00FF87" stroke-width="2" stroke-dasharray="10 10"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00FF87" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#grid)"/>
+  
+  <!-- Center icon -->
+  <g transform="translate(400, 225)">
+    <!-- Cloud icon -->
+    <path d="M-40 0 C-40 -22 -22 -40 0 -40 C22 -40 40 -22 40 0 C40 22 22 40 0 40 C-22 40 -40 22 -40 0 Z" 
+          fill="none" stroke="#00FF87" stroke-width="2"/>
+    <circle cx="0" cy="0" r="15" fill="none" stroke="#00FF87" stroke-width="2"/>
+    <line x1="-25" y1="0" x2="-15" y2="0" stroke="#00FF87" stroke-width="2"/>
+    <line x1="15" y1="0" x2="25" y2="0" stroke="#00FF87" stroke-width="2"/>
+    <line x1="0" y1="-25" x2="0" y2="-15" stroke="#00FF87" stroke-width="2"/>
+    <line x1="0" y1="15" x2="0" y2="25" stroke="#00FF87" stroke-width="2"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="400" y="320" font-family="Arial, sans-serif" font-size="24" font-weight="600" 
+        fill="#00FF87" text-anchor="middle">PROJECT SHOWCASE</text>
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="14" 
+        fill="#666" text-anchor="middle">Cloud Infrastructure & DevOps</text>
+</svg>
