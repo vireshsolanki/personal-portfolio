@@ -92,8 +92,7 @@
   justify-content: center;
   color: var(--text-dim);
   transition: all var(--timing-normal) var(--ease-smooth);
-  padding: 0;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .footer-social .social-icon:hover {
