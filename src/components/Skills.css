@@ -1,6 +1,9 @@
 .skills {
   background: var(--bg-primary);
   padding: 80px var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .skills .section-subtitle {
@@ -10,12 +13,14 @@
 }
 
 .skills-header {
-  max-width: 600px;
+  max-width: 1024px;
+  width: 100%;
   margin: 0 0 40px 0;
+  text-align: center;
 }
 
 .skills .section-title {
-  text-align: left;
+  text-align: center;
   margin-bottom: 0;
   font-size: 32px;
   font-weight: 500;
@@ -31,8 +36,10 @@
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-md);
   max-width: 1024px;
+  width: 100%;
 }
 
 .skill-category {

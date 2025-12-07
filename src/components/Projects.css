@@ -1,6 +1,9 @@
                                                                                                                                     .projects {
   background: var(--bg-primary);
   padding: 80px var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .projects-header {
@@ -11,6 +14,8 @@
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+  max-width: 1200px;
+  width: 100%;
 }
 
 .projects-header.animate-in {
@@ -19,7 +24,7 @@
 }
 
 .projects .section-title {
-  text-align: left;
+  text-align: center;
   margin-bottom: 0;
   font-size: 32px;
   font-weight: 500;
