@@ -1,0 +1,57 @@
+.quote-section {
+  padding: 60px var(--space-3xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote-container {
+  max-width: 712px;
+  width: 100%;
+  padding: 32px 24px;
+  border: 1px solid var(--border);
+  position: relative;
+  margin-top: 16px;
+}
+
+.quote-mark {
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  font-size: 60px;
+  color: var(--text);
+  background: var(--bg-primary);
+  padding: 0 12px;
+  line-height: 1;
+}
+
+.quote-text {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 var(--space-sm) 0;
+  font-style: normal;
+}
+
+.quote-author {
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text);
+  text-align: right;
+  font-style: normal;
+  padding-right: var(--space-md);
+  border-right: 1px solid var(--text);
+  margin-left: auto;
+  width: fit-content;
+}
+
+@media (max-width: 767px) {
+  .quote-text {
+    font-size: 18px;
+  }
+
+  .quote-author {
+    font-size: 18px;
+  }
+}

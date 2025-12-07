@@ -1,6 +1,6 @@
 .footer {
   background: #000000;
-  border-top: 1px solid rgba(0, 255, 135, 0.2);
+  border-top: 1px solid rgba(199, 120, 221, 0.2);
   padding: 60px var(--space-3xl) 40px;
   position: relative;
 }
@@ -96,7 +96,7 @@
 }
 
 .footer-social .social-icon:hover {
-  background: rgba(0, 255, 135, 0.1);
+  background: rgba(199, 120, 221, 0.1);
   border-color: var(--primary);
   color: var(--primary);
   transform: translateY(-4px);

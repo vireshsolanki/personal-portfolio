@@ -5,7 +5,7 @@
 export const personalInfo = {
   name: "Viresh Solanki",
   title: "AWS Cloud & DevOps Engineer",
-  tagline: "Available for Freelance",
+  tagline: "Currently working on Designing Resilient Systems on Cloud",
   description: "Transforming businesses with scalable cloud solutions and DevOps automation. I help companies deploy 70% faster while reducing infrastructure costs by 40%.",
   location: "Surat, Gujarat, India",
   email: "vireshsolanki58@gmail.com",

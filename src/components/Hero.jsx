@@ -59,29 +59,25 @@ const Hero = () => {
       </div>
 
       <div className="hero-content">
-        <div className="hero-image-wrapper">
-          <div className="hero-image-container">
-            <div className="hero-image-glow"></div>
-            <img src={personalInfo.photo} alt={personalInfo.name} />
-          </div>
+        <div className="hero-text">
+          <h1 className="hero-title">
+            <span className="hero-name">{personalInfo.name}</span> is a <span className="hero-role">{personalInfo.title.toLowerCase()}</span>
+          </h1>
+          <p className="hero-subtitle">
+            {personalInfo.description}
+          </p>
+          <a href="#contact" className="hero-cta">Contact me!!</a>
         </div>
 
-        <h1 className="hero-title">
-          <span className="hero-text-line">Viresh Solanki</span>
-          <span className="hero-text-line">Hello, I'm a {personalInfo.title.toLowerCase()}</span>
-          <span className="hero-text-line">based in <span className="text-underline">{personalInfo.location.split(',')[0]}</span>,</span>
-          <span className="hero-text-line">specializing in</span>
-          <span className="hero-text-line text-underline">cloud infrastructure</span>
-        </h1>
-
-        {showScroll && (
-          <div className="scroll-indicator" onClick={scrollToNext}>
-            <span>Scroll down</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 5v14M19 12l-7 7-7-7"/>
-            </svg>
+        <div className="hero-image-wrapper">
+          <div className="hero-image-container">
+            <img src={personalInfo.photo} alt={personalInfo.name} />
           </div>
-        )}
+          <div className="hero-status">
+            <div className="status-dot"></div>
+            <span>{personalInfo.tagline}</span>
+          </div>
+        </div>
       </div>
     </section>
   )

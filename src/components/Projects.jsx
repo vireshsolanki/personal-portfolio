@@ -8,10 +8,10 @@ const Projects = () => {
   return (
     <section id="projects" className="projects" ref={ref}>
       <div className={`projects-header ${isVisible ? 'animate-in' : ''}`}>
-        <h2 className="section-title">Selected projects</h2>
-        <p className="section-subtitle">
-          Real-world cloud infrastructure and DevOps solutions I've built
-        </p>
+        <h2 className="section-title">
+          <span className="title-hash">#</span>projects
+        </h2>
+        <a href="#" className="view-all">View all ~~&gt;</a>
       </div>
       <div className="projects-grid">
         {projects.map((project, index) => (

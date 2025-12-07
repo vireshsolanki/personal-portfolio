@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
+import Quote from './components/Quote'
 import Projects from './components/Projects'
+import Skills from './components/Skills'
+import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import './App.css'
@@ -52,9 +53,10 @@ function App() {
       <Navbar activeSection={activeSection} />
       <div className="main-content">
         <Hero />
-        <About />
-        <Skills />
+        <Quote />
         <Projects />
+        <Skills />
+        <About />
         <Contact />
       </div>
       <Footer />
