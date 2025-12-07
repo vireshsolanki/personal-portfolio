@@ -7,12 +7,12 @@
 }
 
 .contact-container {
-  max-width: 1024px;
-  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .contact .section-title {
-  text-align: center;
+  text-align: left;
   margin-bottom: 40px;
   font-size: 32px;
   font-weight: 500;

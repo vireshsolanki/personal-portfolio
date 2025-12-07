@@ -8,9 +8,7 @@ const Skills = () => {
   return (
     <section id="skills" className="skills" ref={ref}>
       <div className={`skills-header ${isVisible ? 'animate-in' : ''}`}>
-        <h2 className="section-title">
-          <span className="title-hash">#</span>skills
-        </h2>
+        <h2 className="section-title"><span className="title-hash">#</span>skills</h2>
       </div>
       <div className="skills-grid">
         {skills.map((category, catIndex) => (

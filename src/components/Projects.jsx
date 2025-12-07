@@ -1,4 +1,4 @@
-import { projects } from '../data/portfolio'
+import { projects, personalInfo } from '../data/portfolio'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import './Projects.css'
 
@@ -8,10 +8,8 @@ const Projects = () => {
   return (
     <section id="projects" className="projects" ref={ref}>
       <div className={`projects-header ${isVisible ? 'animate-in' : ''}`}>
-        <h2 className="section-title">
-          <span className="title-hash">#</span>projects
-        </h2>
-        <a href="#" className="view-all">View all ~~&gt;</a>
+        <h2 className="section-title"><span className="title-hash">#</span>projects</h2>
+        <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" className="view-all">View all ~~&gt;</a>
       </div>
       <div className="projects-grid">
         {projects.map((project, index) => (
