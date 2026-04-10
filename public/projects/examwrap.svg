@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0C0C0C"/>
+      <stop offset="100%" style="stop-color:#111111"/>
+    </linearGradient>
+    <linearGradient id="purple-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EEEEEE;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#EEEEEE;stop-opacity:0.03"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="#888888" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="50" x2="800" y2="50"/>
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="350" x2="800" y2="350"/>
+    <line x1="100" y1="0" x2="100" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="450"/>
+    <line x1="300" y1="0" x2="300" y2="450"/>
+    <line x1="400" y1="0" x2="400" y2="450"/>
+    <line x1="500" y1="0" x2="500" y2="450"/>
+    <line x1="600" y1="0" x2="600" y2="450"/>
+    <line x1="700" y1="0" x2="700" y2="450"/>
+  </g>
+
+  <!-- AWS Architecture: CloudFront → ECS → RDS -->
+
+  <!-- User -->
+  <rect x="40" y="185" width="90" height="80" rx="4" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="85" y="218" text-anchor="middle" fill="#888888" font-family="monospace" font-size="10" font-weight="500">STUDENT</text>
+  <circle cx="85" cy="236" r="12" fill="none" stroke="#EEEEEE" stroke-width="1.5"/>
+  <circle cx="85" cy="232" r="4" fill="#EEEEEE"/>
+  <path d="M73 247 Q85 244 97 247" stroke="#EEEEEE" stroke-width="1.5" fill="none"/>
+  <text x="85" y="258" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">Browser</text>
+
+  <!-- Arrow -->
+  <line x1="130" y1="225" x2="165" y2="225" stroke="#EEEEEE" stroke-width="1.5" stroke-opacity="0.6"/>
+  <polygon points="165,221 173,225 165,229" fill="#EEEEEE" fill-opacity="0.6"/>
+
+  <!-- CloudFront -->
+  <rect x="173" y="185" width="110" height="80" rx="4" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="228" y="208" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">CloudFront</text>
+  <rect x="195" y="215" width="66" height="28" rx="3" fill="url(#purple-glow)" stroke="#EEEEEE" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="228" y="224" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">CDN + WAF</text>
+  <text x="228" y="236" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">SSL/TLS</text>
+  <text x="228" y="256" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">aws.cdn</text>
+
+  <!-- S3 Static -->
+  <rect x="173" y="295" width="110" height="60" rx="4" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="228" y="315" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">S3</text>
+  <text x="228" y="330" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Static Assets</text>
+  <text x="228" y="344" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">React Bundle</text>
+
+  <!-- CloudFront → S3 -->
+  <line x1="228" y1="265" x2="228" y2="295" stroke="#888888" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Arrow -->
+  <line x1="283" y1="225" x2="318" y2="225" stroke="#EEEEEE" stroke-width="1.5" stroke-opacity="0.6"/>
+  <polygon points="318,221 326,225 318,229" fill="#EEEEEE" fill-opacity="0.6"/>
+
+  <!-- ECS Fargate -->
+  <rect x="326" y="165" width="130" height="120" rx="4" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.5" stroke-width="1.5"/>
+  <text x="391" y="185" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">ECS FARGATE</text>
+  <rect x="340" y="193" width="102" height="36" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="391" y="207" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">API Container</text>
+  <text x="391" y="220" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">examwrap-backend</text>
+  <rect x="340" y="237" width="102" height="36" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="391" y="251" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">Worker Container</text>
+  <text x="391" y="264" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">exam-processor</text>
+  <text x="391" y="278" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">Private Subnet</text>
+
+  <!-- Arrow to RDS -->
+  <line x1="456" y1="225" x2="491" y2="225" stroke="#EEEEEE" stroke-width="1.5" stroke-opacity="0.6"/>
+  <polygon points="491,221 499,225 491,229" fill="#EEEEEE" fill-opacity="0.6"/>
+
+  <!-- RDS -->
+  <rect x="499" y="185" width="110" height="80" rx="4" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="554" y="208" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">RDS PostgreSQL</text>
+  <ellipse cx="554" cy="228" rx="30" ry="8" fill="none" stroke="#EEEEEE" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="524" y1="228" x2="524" y2="240" stroke="#EEEEEE" stroke-opacity="0.5" stroke-width="1.5"/>
+  <line x1="584" y1="228" x2="584" y2="240" stroke="#EEEEEE" stroke-opacity="0.5" stroke-width="1.5"/>
+  <ellipse cx="554" cy="240" rx="30" ry="8" fill="#111111" stroke="#EEEEEE" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="554" y="258" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">Multi-AZ</text>
+
+  <!-- S3 Uploads -->
+  <rect x="499" y="295" width="110" height="60" rx="4" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="554" y="315" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">S3 Bucket</text>
+  <text x="554" y="330" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Exam PDFs</text>
+  <text x="554" y="344" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">User Uploads</text>
+  <line x1="554" y1="265" x2="554" y2="295" stroke="#888888" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Terraform + CI/CD -->
+  <rect x="640" y="155" width="120" height="60" rx="4" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="700" y="178" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">Terraform IaC</text>
+  <text x="700" y="192" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">All infra as code</text>
+  <text x="700" y="204" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">version controlled</text>
+
+  <rect x="640" y="235" width="120" height="60" rx="4" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="700" y="258" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">GitHub Actions</text>
+  <text x="700" y="272" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">CI/CD Pipeline</text>
+  <text x="700" y="284" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">auto deploy on push</text>
+
+  <rect x="640" y="315" width="120" height="60" rx="4" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="700" y="338" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">CloudWatch</text>
+  <text x="700" y="352" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Metrics + Logs</text>
+  <text x="700" y="364" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Auto alerts</text>
+
+  <!-- Title -->
+  <text x="400" y="42" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">EXAMWRAP — AWS ARCHITECTURE</text>
+  <text x="400" y="60" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">examwrap.vireshsaas.in · SaaS Exam Prep Platform</text>
+
+  <!-- Bottom border line -->
+  <line x1="40" y1="420" x2="760" y2="420" stroke="#888888" stroke-opacity="0.08" stroke-width="1"/>
+  <text x="400" y="438" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Auto-scaling · Multi-AZ · IaC · Deployed on AWS</text>
+</svg>

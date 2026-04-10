@@ -1,0 +1,154 @@
+/* ── Navbar slot — full navbar height, anchored left ── */
+.devbot-slot {
+  position: fixed;
+  top: 0;
+  left: 28px;
+  width: 56px;
+  height: 80px;          /* same as navbar height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  z-index: 1100;         /* above navbar (1000) */
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ── Container SVG ── */
+.devbot-svg {
+  width: 44px;
+  height: 42px;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.devbot-slot:hover .devbot-svg {
+  filter: drop-shadow(0 3px 14px rgba(36, 150, 237, 0.5));
+  transform: translateY(-2px);
+}
+
+/* ── DEVBOT-01 label ── */
+.devbot-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 7px;
+  font-weight: 600;
+  color: #EEEEEE;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  line-height: 1;
+}
+
+/* ── Antenna wiggle ── */
+@keyframes antennaWiggle {
+  from { transform: rotate(-10deg); }
+  to   { transform: rotate(10deg);  }
+}
+
+.bot-antenna {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: antennaWiggle 1.6s ease-in-out infinite alternate;
+}
+
+/* ── LED pulse ── */
+@keyframes ledPulse {
+  from { opacity: 0.5; }
+  to   { opacity: 1;   }
+}
+
+.bot-led {
+  animation: ledPulse 0.8s ease-in-out infinite alternate;
+}
+
+/* ── Subtle idle float ── */
+@keyframes idleFloat {
+  0%, 100% { transform: translateY(0);   }
+  50%       { transform: translateY(-3px); }
+}
+
+.devbot-svg {
+  animation: idleFloat 2.2s ease-in-out infinite;
+}
+
+.devbot-slot:hover .devbot-svg {
+  animation: none;   /* stop float on hover, let the :hover transform take over */
+}
+
+/* ── Bubble — drops below the navbar ── */
+.devbot-bubble {
+  position: absolute;
+  top: calc(100% + 4px);   /* slot is 80px tall → bubble starts at y=84px */
+  left: 0;
+  width: 220px;
+  background: #111111;
+  border: 1px solid #EEEEEE;
+  padding: 16px 18px 14px;
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.65);
+  z-index: 1101;
+  cursor: default;
+}
+
+/* Caret pointing up toward the container */
+.devbot-bubble::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 16px;
+  border-left:   9px solid transparent;
+  border-right:  9px solid transparent;
+  border-bottom: 9px solid #EEEEEE;
+}
+
+.bubble-greeting {
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  color: #2496ED;
+  margin: 0 0 4px;
+}
+
+.bubble-cta {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  color: #abb2bf;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.bubble-btn {
+  display: block;
+  padding: 9px 0;
+  background: #EEEEEE;
+  color: #0C0C0C;
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.bubble-btn:hover {
+  background: #D0D0D0;
+  color: #fff;
+}
+
+.bubble-close {
+  position: absolute;
+  top: 7px;
+  right: 9px;
+  background: none;
+  border: none;
+  color: #abb2bf;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bubble-close:hover {
+  color: #EEEEEE;
+}

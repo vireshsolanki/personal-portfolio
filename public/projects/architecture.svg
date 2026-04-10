@@ -1,48 +1,121 @@
-<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="450" fill="#0A0A0A"/>
-  <rect x="1" y="1" width="798" height="448" stroke="#C778DD" stroke-width="2"/>
-  
-  <!-- Grid pattern -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
   <defs>
-    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#C778DD" stroke-width="0.5" opacity="0.1"/>
-    </pattern>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0C0C0C"/>
+      <stop offset="100%" style="stop-color:#111111"/>
+    </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#grid2)"/>
-  
-  <!-- Architecture diagram -->
-  <g transform="translate(400, 225)">
-    <!-- Containers -->
-    <rect x="-120" y="-60" width="80" height="50" rx="8" fill="none" stroke="#C778DD" stroke-width="2"/>
-    <text x="-80" y="-28" font-family="Arial" font-size="12" fill="#C778DD" text-anchor="middle">Container 1</text>
-    
-    <rect x="-20" y="-60" width="80" height="50" rx="8" fill="none" stroke="#C778DD" stroke-width="2"/>
-    <text x="20" y="-28" font-family="Arial" font-size="12" fill="#C778DD" text-anchor="middle">Container 2</text>
-    
-    <rect x="80" y="-60" width="80" height="50" rx="8" fill="none" stroke="#C778DD" stroke-width="2"/>
-    <text x="120" y="-28" font-family="Arial" font-size="12" fill="#C778DD" text-anchor="middle">Container 3</text>
-    
-    <!-- Load Balancer -->
-    <rect x="-40" y="30" width="80" height="40" rx="8" fill="#C778DD" opacity="0.2"/>
-    <text x="0" y="55" font-family="Arial" font-size="12" fill="#C778DD" text-anchor="middle" font-weight="600">ALB</text>
-    
-    <!-- CloudFront -->
-    <circle cx="0" cy="-120" r="30" fill="none" stroke="#C778DD" stroke-width="2"/>
-    <text x="0" y="-115" font-family="Arial" font-size="11" fill="#C778DD" text-anchor="middle" font-weight="600">CDN</text>
-    
-    <!-- Connection lines -->
-    <line x1="0" y1="-90" x2="-80" y2="-60" stroke="#C778DD" stroke-width="1.5" opacity="0.6"/>
-    <line x1="0" y1="-90" x2="20" y2="-60" stroke="#C778DD" stroke-width="1.5" opacity="0.6"/>
-    <line x1="0" y1="-90" x2="120" y2="-60" stroke="#C778DD" stroke-width="1.5" opacity="0.6"/>
-    
-    <line x1="-80" y1="-10" x2="0" y2="30" stroke="#C778DD" stroke-width="1.5" opacity="0.6"/>
-    <line x1="20" y1="-10" x2="0" y2="30" stroke="#C778DD" stroke-width="1.5" opacity="0.6"/>
-    <line x1="120" y1="-10" x2="0" y2="30" stroke="#C778DD" stroke-width="1.5" opacity="0.6"/>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <g stroke="#888888" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="75" x2="800" y2="75"/><line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="225" x2="800" y2="225"/><line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+    <line x1="160" y1="0" x2="160" y2="450"/><line x1="320" y1="0" x2="320" y2="450"/>
+    <line x1="480" y1="0" x2="480" y2="450"/><line x1="640" y1="0" x2="640" y2="450"/>
   </g>
-  
-  <!-- Text -->
-  <text x="400" y="350" font-family="Arial, sans-serif" font-size="28" font-weight="700" 
-        fill="#C778DD" text-anchor="middle">ARCHITECTURE MODERNIZATION</text>
-  <text x="400" y="380" font-family="Arial, sans-serif" font-size="14" 
-        fill="#666" text-anchor="middle">Multi-tier • Containerized • CloudFront • ECS Fargate</text>
+  <text x="400" y="42" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">ARCHITECTURE MODERNIZATION</text>
+  <text x="400" y="60" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">Monolith → Multi-tier Containers · ECS Fargate · CloudFront · 99.9% SLA</text>
+
+  <!-- BEFORE side -->
+  <text x="165" y="92" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" opacity="0.5" font-weight="600">BEFORE</text>
+  <rect x="40" y="100" width="250" height="290" rx="5" fill="none" stroke="#444444" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="5,4"/>
+
+  <rect x="60" y="115" width="210" height="80" rx="3" fill="#1A1A1A" stroke="#444444" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="165" y="140" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9" font-weight="600">Monolithic App</text>
+  <text x="165" y="157" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">EC2 t2.medium (single AZ)</text>
+  <text x="165" y="170" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">App + DB + Files on one server</text>
+  <text x="165" y="183" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Manual deploys via SSH</text>
+
+  <rect x="60" y="210" width="210" height="60" rx="3" fill="#1A1A1A" stroke="#444444" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="165" y="232" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">MySQL on same EC2</text>
+  <text x="165" y="248" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">No backups · No failover</text>
+  <text x="165" y="261" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Single point of failure</text>
+
+  <rect x="60" y="285" width="210" height="50" rx="3" fill="#1A1A1A" stroke="#444444" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="165" y="305" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Static files served from EC2</text>
+  <text x="165" y="320" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">No CDN · High latency</text>
+
+  <!-- Problems list -->
+  <rect x="60" y="348" width="210" height="30" rx="3" fill="#1A1A1A" stroke="#444444" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="165" y="358" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Downtime on deploy · 85% uptime</text>
+  <text x="165" y="370" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Can't scale · $$ wasted on idle EC2</text>
+
+  <!-- Arrow -->
+  <line x1="295" y1="245" x2="320" y2="245" stroke="#EEEEEE" stroke-opacity="0.6" stroke-width="2"/>
+  <polygon points="320,240 332,245 320,250" fill="#EEEEEE" fill-opacity="0.6"/>
+  <text x="311" y="230" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="700">→</text>
+
+  <!-- AFTER side -->
+  <text x="580" y="92" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" opacity="0.7" font-weight="600">AFTER</text>
+  <rect x="345" y="100" width="415" height="290" rx="5" fill="none" stroke="#EEEEEE" stroke-opacity="0.2" stroke-width="1.5"/>
+
+  <!-- CloudFront -->
+  <rect x="360" y="115" width="110" height="60" rx="3" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="415" y="136" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">CloudFront</text>
+  <text x="415" y="151" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">CDN · HTTPS</text>
+  <text x="415" y="163" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Edge caching</text>
+
+  <!-- ALB -->
+  <rect x="490" y="115" width="100" height="60" rx="3" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="540" y="136" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">ALB</text>
+  <text x="540" y="151" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Health checks</text>
+  <text x="540" y="163" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">SSL termination</text>
+
+  <!-- S3 -->
+  <rect x="610" y="115" width="130" height="60" rx="3" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="675" y="136" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">S3 Static</text>
+  <text x="675" y="151" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">React/Vue bundle</text>
+  <text x="675" y="163" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Versioned deploys</text>
+
+  <!-- Arrow CF → ALB -->
+  <line x1="470" y1="145" x2="490" y2="145" stroke="#EEEEEE" stroke-opacity="0.4" stroke-width="1.2"/>
+  <polygon points="490,142 496,145 490,148" fill="#EEEEEE" fill-opacity="0.4"/>
+  <!-- CF → S3 -->
+  <line x1="415" y1="175" x2="415" y2="195" stroke="#888888" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="415" y1="195" x2="675" y2="195" stroke="#888888" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="675" y1="175" x2="675" y2="195" stroke="#888888" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- ECS Fargate -->
+  <rect x="360" y="200" width="240" height="100" rx="3" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="480" y="220" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">ECS Fargate  (Private Subnet)</text>
+  <rect x="370" y="228" width="100" height="55" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="420" y="244" text-anchor="middle" fill="#888888" font-family="monospace" font-size="7" font-weight="600">api-service</text>
+  <text x="420" y="257" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">2–8 tasks</text>
+  <text x="420" y="270" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">CPU auto-scale</text>
+  <rect x="490" y="228" width="100" height="55" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="540" y="244" text-anchor="middle" fill="#888888" font-family="monospace" font-size="7" font-weight="600">worker-service</text>
+  <text x="540" y="257" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">1–4 tasks</text>
+  <text x="540" y="270" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Queue-based scale</text>
+  <text x="480" y="292" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Docker · ECR · zero-downtime rolling deploys</text>
+
+  <!-- RDS -->
+  <rect x="360" y="316" width="110" height="62" rx="3" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="415" y="336" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">RDS Multi-AZ</text>
+  <text x="415" y="352" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Auto failover &lt;60s</text>
+  <text x="415" y="365" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Daily snapshots</text>
+
+  <!-- Terraform -->
+  <rect x="490" y="316" width="110" height="62" rx="3" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="545" y="336" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">Terraform</text>
+  <text x="545" y="352" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Full IaC coverage</text>
+  <text x="545" y="365" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">PR-based deploys</text>
+
+  <!-- Results -->
+  <rect x="616" y="200" width="128" height="178" rx="3" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="680" y="220" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8" font-weight="600">RESULTS</text>
+  <line x1="626" y1="226" x2="734" y2="226" stroke="#888888" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="680" y="248" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700">99.9%</text>
+  <text x="680" y="262" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">uptime SLA</text>
+  <text x="680" y="284" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700">70%</text>
+  <text x="680" y="298" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">faster deploys</text>
+  <text x="680" y="320" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700">40%</text>
+  <text x="680" y="334" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">cost reduction</text>
+  <text x="680" y="356" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700">0</text>
+  <text x="680" y="370" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">deploy downtime</text>
+
+  <!-- ALB → ECS -->
+  <line x1="540" y1="175" x2="480" y2="200" stroke="#888888" stroke-opacity="0.3" stroke-width="1.2"/>
+
+  <line x1="40" y1="420" x2="760" y2="420" stroke="#888888" stroke-opacity="0.08" stroke-width="1"/>
+  <text x="400" y="438" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">ECS Fargate · CloudFront · Terraform IaC · Rolling deploys · 99.9% SLA</text>
 </svg>

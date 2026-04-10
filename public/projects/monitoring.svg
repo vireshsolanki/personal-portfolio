@@ -1,42 +1,126 @@
-<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="450" fill="#0A0A0A"/>
-  <rect x="1" y="1" width="798" height="448" stroke="#C778DD" stroke-width="2"/>
-  
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
   <defs>
-    <pattern id="gridMonitor" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#C778DD" stroke-width="0.5" opacity="0.1"/>
-    </pattern>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0C0C0C"/>
+      <stop offset="100%" style="stop-color:#111111"/>
+    </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#gridMonitor)"/>
-  
-  <g transform="translate(400, 200)">
-    <rect x="-150" y="-90" width="300" height="160" rx="8" fill="none" stroke="#C778DD" stroke-width="2"/>
-    
-    <rect x="-150" y="-90" width="300" height="20" fill="#C778DD" opacity="0.2"/>
-    
-    <rect x="-130" y="-50" width="120" height="80" rx="4" fill="none" stroke="#C778DD" stroke-width="1.5" opacity="0.6"/>
-    <polyline points="-120,-30 -110,-10 -100,-35 -90,-5 -80,-25 -70,0 -60,-20 -50,5 -40,-15 -30,10" 
-              stroke="#C778DD" stroke-width="2" fill="none"/>
-    
-    <rect x="20" y="-50" width="120" height="80" rx="4" fill="none" stroke="#C778DD" stroke-width="1.5" opacity="0.6"/>
-    <rect x="35" y="-30" width="90" height="6" rx="3" fill="#C778DD" opacity="0.3"/>
-    <rect x="35" y="-30" width="65" height="6" rx="3" fill="#C778DD"/>
-    <rect x="35" y="-15" width="90" height="6" rx="3" fill="#C778DD" opacity="0.3"/>
-    <rect x="35" y="-15" width="75" height="6" rx="3" fill="#C778DD"/>
-    <rect x="35" y="0" width="90" height="6" rx="3" fill="#C778DD" opacity="0.3"/>
-    <rect x="35" y="0" width="50" height="6" rx="3" fill="#C778DD"/>
-    
-    <circle cx="-80" cy="50" r="6" fill="#C778DD"/>
-    <circle cx="0" cy="50" r="6" fill="#C778DD"/>
-    <circle cx="80" cy="50" r="6" fill="#C778DD"/>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <g stroke="#888888" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="75" x2="800" y2="75"/><line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="225" x2="800" y2="225"/><line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+    <line x1="160" y1="0" x2="160" y2="450"/><line x1="320" y1="0" x2="320" y2="450"/>
+    <line x1="480" y1="0" x2="480" y2="450"/><line x1="640" y1="0" x2="640" y2="450"/>
   </g>
-  
-  <circle cx="650" cy="100" r="30" fill="#C778DD" opacity="0.2"/>
-  <path d="M 650 85 L 650 100 L 650 115" stroke="#C778DD" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="650" cy="120" r="3" fill="#C778DD"/>
-  
-  <text x="400" y="340" font-family="Arial, sans-serif" font-size="28" font-weight="700" 
-        fill="#C778DD" text-anchor="middle">MONITORING INFRASTRUCTURE</text>
-  <text x="400" y="370" font-family="Arial, sans-serif" font-size="14" 
-        fill="#666" text-anchor="middle">Grafana • Prometheus • Slack Alerts • Real-time Dashboards</text>
+  <text x="400" y="42" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">MONITORING &amp; OBSERVABILITY PLATFORM</text>
+  <text x="400" y="60" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">Grafana · Prometheus · CloudWatch · Alertmanager · MTTD: 5 min</text>
+
+  <!-- Data Sources -->
+  <rect x="30" y="85" width="150" height="300" rx="5" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="105" y="108" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">DATA SOURCES</text>
+
+  <rect x="44" y="118" width="122" height="34" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="105" y="133" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">EC2 / ECS metrics</text>
+  <text x="105" y="145" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">node_exporter · cAdvisor</text>
+
+  <rect x="44" y="159" width="122" height="34" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="105" y="174" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">RDS metrics</text>
+  <text x="105" y="186" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Connections · QPS · Lag</text>
+
+  <rect x="44" y="200" width="122" height="34" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="105" y="215" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">App metrics</text>
+  <text x="105" y="227" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Custom /metrics endpoint</text>
+
+  <rect x="44" y="241" width="122" height="34" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="105" y="256" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">CloudWatch Logs</text>
+  <text x="105" y="268" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">App + infra logs</text>
+
+  <rect x="44" y="282" width="122" height="34" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="105" y="297" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">ALB Access Logs</text>
+  <text x="105" y="309" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Request rates · 4xx/5xx</text>
+
+  <rect x="44" y="323" width="122" height="34" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="105" y="338" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">Synthetics</text>
+  <text x="105" y="350" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Uptime probes 60s</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="235" x2="215" y2="235" stroke="#EEEEEE" stroke-opacity="0.4" stroke-width="1.5"/>
+  <polygon points="215,231 223,235 215,239" fill="#EEEEEE" fill-opacity="0.4"/>
+
+  <!-- Prometheus -->
+  <rect x="223" y="130" width="140" height="85" rx="3" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="293" y="152" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">Prometheus</text>
+  <text x="293" y="170" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Scrape every 15s</text>
+  <text x="293" y="183" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">TSDB: 30 day retention</text>
+  <text x="293" y="196" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">PromQL queries</text>
+  <text x="293" y="207" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Remote write → S3</text>
+
+  <!-- Alertmanager -->
+  <rect x="223" y="230" width="140" height="85" rx="3" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="293" y="252" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">Alertmanager</text>
+  <text x="293" y="270" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Alert routing rules</text>
+  <text x="293" y="283" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Deduplication</text>
+  <text x="293" y="296" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Silences + inhibition</text>
+  <text x="293" y="307" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Severity levels: P0–P3</text>
+
+  <!-- Arrow Prom → AM -->
+  <line x1="293" y1="215" x2="293" y2="230" stroke="#888888" stroke-opacity="0.3" stroke-width="1.2"/>
+
+  <!-- Arrow to Grafana -->
+  <line x1="363" y1="173" x2="398" y2="173" stroke="#EEEEEE" stroke-opacity="0.4" stroke-width="1.5"/>
+  <polygon points="398,169 406,173 398,177" fill="#EEEEEE" fill-opacity="0.4"/>
+
+  <!-- Grafana -->
+  <rect x="406" y="120" width="185" height="220" rx="4" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="498" y="142" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="10" font-weight="700">Grafana</text>
+  <text x="498" y="157" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Live Dashboards</text>
+
+  <rect x="418" y="163" width="161" height="36" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="498" y="177" text-anchor="middle" fill="#888888" font-family="monospace" font-size="7" font-weight="600">Infrastructure Overview</text>
+  <text x="498" y="191" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">CPU · Mem · Disk · Network</text>
+
+  <rect x="418" y="205" width="161" height="36" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="498" y="219" text-anchor="middle" fill="#888888" font-family="monospace" font-size="7" font-weight="600">Application Dashboard</text>
+  <text x="498" y="233" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Req/s · Errors · Latency p99</text>
+
+  <rect x="418" y="247" width="161" height="36" rx="2" fill="#111111" stroke="#888888" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="498" y="261" text-anchor="middle" fill="#888888" font-family="monospace" font-size="7" font-weight="600">Business Metrics</text>
+  <text x="498" y="275" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Active users · Conversions</text>
+
+  <rect x="418" y="289" width="161" height="36" rx="2" fill="#111111" stroke="#EEEEEE" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="498" y="303" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="7" font-weight="600">Cost Dashboard</text>
+  <text x="498" y="317" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">AWS spend vs budget</text>
+
+  <!-- Arrows AM → alerts -->
+  <line x1="363" y1="273" x2="610" y2="273" stroke="#888888" stroke-opacity="0.2" stroke-width="1.2" stroke-dasharray="5,3"/>
+
+  <!-- Notification channels -->
+  <rect x="610" y="120" width="160" height="60" rx="3" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="690" y="140" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">Slack Alerts</text>
+  <text x="690" y="157" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">#alerts-p0 · #alerts-p1</text>
+  <text x="690" y="169" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Rich context in every alert</text>
+
+  <rect x="610" y="196" width="160" height="60" rx="3" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="690" y="216" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">PagerDuty</text>
+  <text x="690" y="233" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">P0 incidents only</text>
+  <text x="690" y="245" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">On-call escalation</text>
+
+  <rect x="610" y="272" width="160" height="60" rx="3" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="690" y="292" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">Email Digest</text>
+  <text x="690" y="309" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Daily summary report</text>
+  <text x="690" y="321" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Weekly trend analysis</text>
+
+  <!-- Results -->
+  <rect x="223" y="332" width="370" height="60" rx="4" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="408" y="352" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8" font-weight="600">IMPACT</text>
+  <text x="290" y="370" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="10" font-weight="700">5 min</text>
+  <text x="290" y="383" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">MTTD (was: hours)</text>
+  <text x="408" y="370" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="10" font-weight="700">100%</text>
+  <text x="408" y="383" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">infra visibility</text>
+  <text x="530" y="370" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="10" font-weight="700">0</text>
+  <text x="530" y="383" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">missed P0 incidents</text>
+
+  <line x1="40" y1="420" x2="760" y2="420" stroke="#888888" stroke-opacity="0.08" stroke-width="1"/>
+  <text x="400" y="438" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Prometheus · Grafana · Alertmanager · CloudWatch · Slack · PagerDuty</text>
 </svg>
