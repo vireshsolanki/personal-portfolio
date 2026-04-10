@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0C0C0C"/>
+      <stop offset="100%" style="stop-color:#111111"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <g stroke="#888888" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="75" x2="800" y2="75"/>
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="225" x2="800" y2="225"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="375" x2="800" y2="375"/>
+    <line x1="160" y1="0" x2="160" y2="450"/>
+    <line x1="320" y1="0" x2="320" y2="450"/>
+    <line x1="480" y1="0" x2="480" y2="450"/>
+    <line x1="640" y1="0" x2="640" y2="450"/>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="42" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">STARTUP CLOUD FOUNDATION</text>
+  <text x="400" y="60" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">AWS VPC · Multi-environment · Terraform · 0 → 50k users</text>
+
+  <!-- VPC Boundary -->
+  <rect x="30" y="80" width="740" height="310" rx="6" fill="none" stroke="#EEEEEE" stroke-opacity="0.15" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="50" y="100" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600" opacity="0.5">AWS VPC  10.0.0.0/16</text>
+
+  <!-- Public Subnet -->
+  <rect x="50" y="110" width="330" height="110" rx="4" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="215" y="128" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8" opacity="0.6">PUBLIC SUBNET  10.0.1.0/24</text>
+
+  <!-- ALB -->
+  <rect x="68" y="135" width="90" height="70" rx="3" fill="#111111" stroke="#EEEEEE" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="113" y="158" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">ALB</text>
+  <text x="113" y="172" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Load Balancer</text>
+  <text x="113" y="184" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">HTTPS :443</text>
+  <text x="113" y="196" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">SSL Termination</text>
+
+  <!-- NAT Gateway -->
+  <rect x="180" y="135" width="90" height="70" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="225" y="158" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">NAT GW</text>
+  <text x="225" y="172" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Outbound</text>
+  <text x="225" y="184" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Private →</text>
+  <text x="225" y="196" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Internet</text>
+
+  <!-- WAF -->
+  <rect x="292" y="135" width="72" height="70" rx="3" fill="#111111" stroke="#EEEEEE" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="328" y="158" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">WAF</text>
+  <text x="328" y="172" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">DDoS</text>
+  <text x="328" y="184" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Rules</text>
+
+  <!-- Private Subnet -->
+  <rect x="50" y="240" width="330" height="130" rx="4" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="215" y="258" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8" opacity="0.6">PRIVATE SUBNET  10.0.2.0/24</text>
+
+  <!-- ECS -->
+  <rect x="68" y="265" width="100" height="90" rx="3" fill="#111111" stroke="#EEEEEE" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="118" y="285" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">ECS Fargate</text>
+  <rect x="76" y="292" width="84" height="22" rx="2" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="118" y="307" text-anchor="middle" fill="#888888" font-family="monospace" font-size="7">app container</text>
+  <rect x="76" y="318" width="84" height="22" rx="2" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="118" y="333" text-anchor="middle" fill="#888888" font-family="monospace" font-size="7">auto-scaling</text>
+  <text x="118" y="348" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">1–20 tasks</text>
+
+  <!-- RDS -->
+  <rect x="188" y="265" width="80" height="90" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="228" y="285" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">RDS</text>
+  <ellipse cx="228" cy="305" rx="22" ry="6" fill="none" stroke="#EEEEEE" stroke-width="1.2" stroke-opacity="0.5"/>
+  <line x1="206" y1="305" x2="206" y2="315" stroke="#EEEEEE" stroke-opacity="0.5" stroke-width="1.2"/>
+  <line x1="250" y1="305" x2="250" y2="315" stroke="#EEEEEE" stroke-opacity="0.5" stroke-width="1.2"/>
+  <ellipse cx="228" cy="315" rx="22" ry="6" fill="#1A1A1A" stroke="#EEEEEE" stroke-width="1.2" stroke-opacity="0.5"/>
+  <text x="228" y="335" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Multi-AZ</text>
+  <text x="228" y="346" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Postgres</text>
+
+  <!-- Elasticache -->
+  <rect x="286" y="265" width="78" height="90" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="325" y="285" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8" font-weight="600">ElastiCache</text>
+  <text x="325" y="302" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Redis</text>
+  <text x="325" y="315" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Sessions +</text>
+  <text x="325" y="327" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Cache</text>
+
+  <!-- Arrows vertical (ALB → ECS) -->
+  <line x1="113" y1="205" x2="113" y2="265" stroke="#EEEEEE" stroke-opacity="0.5" stroke-width="1.5"/>
+  <polygon points="109,261 113,269 117,261" fill="#EEEEEE" fill-opacity="0.5"/>
+
+  <!-- Right side: CI/CD + Monitoring -->
+  <rect x="410" y="110" width="360" height="100" rx="4" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="590" y="130" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">CI/CD PIPELINE</text>
+
+  <rect x="425" y="138" width="70" height="55" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="460" y="158" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8" font-weight="600">GitHub</text>
+  <text x="460" y="172" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Push</text>
+  <text x="460" y="183" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Trigger</text>
+
+  <line x1="495" y1="165" x2="513" y2="165" stroke="#EEEEEE" stroke-opacity="0.5" stroke-width="1.2"/>
+  <polygon points="513,162 519,165 513,168" fill="#EEEEEE" fill-opacity="0.5"/>
+
+  <rect x="519" y="138" width="75" height="55" rx="3" fill="#111111" stroke="#EEEEEE" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="556" y="155" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="8" font-weight="600">GitHub</text>
+  <text x="556" y="167" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="8" font-weight="600">Actions</text>
+  <text x="556" y="180" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Build+Test</text>
+  <text x="556" y="191" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">+Deploy</text>
+
+  <line x1="594" y1="165" x2="612" y2="165" stroke="#EEEEEE" stroke-opacity="0.5" stroke-width="1.2"/>
+  <polygon points="612,162 618,165 612,168" fill="#EEEEEE" fill-opacity="0.5"/>
+
+  <rect x="618" y="138" width="136" height="55" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="686" y="155" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8" font-weight="600">ECR + ECS Deploy</text>
+  <text x="686" y="170" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Push image to ECR</text>
+  <text x="686" y="182" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">Update ECS service</text>
+
+  <!-- Monitoring -->
+  <rect x="410" y="230" width="160" height="140" rx="4" fill="#1A1A1A" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="490" y="250" text-anchor="middle" fill="#888888" font-family="monospace" font-size="9" font-weight="600">MONITORING</text>
+  <rect x="425" y="258" width="130" height="30" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="490" y="278" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">CloudWatch Dashboards</text>
+  <rect x="425" y="295" width="130" height="30" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="490" y="315" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">Alerts → Slack / Email</text>
+  <rect x="425" y="332" width="130" height="28" rx="3" fill="#111111" stroke="#EEEEEE" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="490" y="350" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="8">Cost budgets + alerts</text>
+
+  <!-- Terraform -->
+  <rect x="590" y="230" width="180" height="140" rx="4" fill="#1A1A1A" stroke="#EEEEEE" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="680" y="250" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">TERRAFORM IaC</text>
+  <text x="680" y="272" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">modules/vpc</text>
+  <text x="680" y="287" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">modules/ecs</text>
+  <text x="680" y="302" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">modules/rds</text>
+  <text x="680" y="317" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">modules/monitoring</text>
+  <line x1="620" y1="330" x2="750" y2="330" stroke="#888888" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="680" y="348" text-anchor="middle" fill="#888888" font-family="monospace" font-size="7">dev / staging / prod</text>
+  <text x="680" y="360" text-anchor="middle" fill="#555555" font-family="monospace" font-size="7">S3 + DynamoDB state lock</text>
+
+  <!-- Bottom -->
+  <line x1="40" y1="420" x2="760" y2="420" stroke="#888888" stroke-opacity="0.08" stroke-width="1"/>
+  <text x="400" y="438" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Multi-env · Auto-scaling · IaC · Scaled 0 → 50k users</text>
+</svg>

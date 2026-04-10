@@ -1,0 +1,153 @@
+.clients {
+  padding: var(--space-4xl) var(--space-3xl);
+}
+
+.clients-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.clients-heading {
+  margin-bottom: var(--space-2xl);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+}
+
+.clients-heading.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.client-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: var(--space-xl);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth), border-color var(--timing-normal);
+}
+
+.client-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.client-card:hover {
+  border-color: rgba(199, 120, 221, 0.4);
+}
+
+.client-card-wide {
+  grid-column: 1 / -1;
+}
+
+.client-card-top {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.client-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.client-label {
+  font-size: var(--font-body-sm);
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.client-summary {
+  font-size: var(--font-body-sm);
+  color: var(--text-dim);
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+}
+
+.client-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: var(--space-lg);
+}
+
+.client-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--font-body-sm);
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.list-marker {
+  color: var(--primary);
+  font-size: 10px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.client-badge {
+  display: inline-block;
+  font-size: var(--font-caption);
+  color: var(--primary);
+  border: 1px solid rgba(199, 120, 221, 0.3);
+  padding: 3px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Wide card pillars */
+.client-pillars {
+  display: flex;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  margin-top: var(--space-sm);
+}
+
+.pillar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-body-sm);
+  color: var(--text-dim);
+}
+
+.pillar svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .clients {
+    padding: var(--space-3xl) var(--space-md);
+  }
+
+  .clients-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .client-card-wide {
+    grid-column: 1;
+  }
+
+  .client-number {
+    font-size: 2.2rem;
+  }
+
+  .client-pillars {
+    gap: var(--space-md);
+  }
+}

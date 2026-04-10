@@ -1,13 +1,24 @@
 import { experience } from '../data/portfolio'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import './Experience.css'
 
 const Experience = () => {
+  const [ref, isVisible] = useScrollAnimation(0.1)
+
   return (
-    <section id="experience" className="experience">
-      <h2 className="section-title">Experience</h2>
+    <section id="experience" className="experience" ref={ref}>
+      <div className={`experience-header ${isVisible ? 'animate-in' : ''}`}>
+        <h2 className="experience-heading">
+          <span className="title-hash">#</span>experience
+        </h2>
+      </div>
       <div className="experience-timeline">
         {experience.map((exp, index) => (
-          <div key={index} className="experience-item">
+          <div
+            key={index}
+            className={`experience-item ${isVisible ? 'animate-in' : ''}`}
+            style={{ animationDelay: `${index * 0.2}s` }}
+          >
             <div className="timeline-dot"></div>
             <div className="experience-card">
               <div className="exp-date">{exp.period}</div>

@@ -20,7 +20,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-brand">
-          <h3 className="footer-logo">{personalInfo.name.split(' ')[0]}</h3>
+          <h3 className="footer-logo">{personalInfo.name}</h3>
           <p className="footer-tagline">{personalInfo.title}</p>
           <p className="footer-copyright">
             &copy; {new Date().getFullYear()} {personalInfo.name}. All rights reserved.

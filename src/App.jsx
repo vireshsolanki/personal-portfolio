@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Quote from './components/Quote'
+import About from './components/About'
+import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
-import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import FloatingIcons from './components/FloatingIcons'
+import DogMascot from './components/DogMascot'
 import './App.css'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
-    const sections = ['home', 'about', 'skills', 'projects', 'contact']
-    
+    const sections = ['home', 'about', 'experience', 'projects', 'skills', 'contact']
+
     const observerOptions = {
       root: null,
       rootMargin: '-80px 0px -80% 0px',
@@ -33,33 +35,31 @@ function App() {
 
     sections.forEach((section) => {
       const element = document.getElementById(section)
-      if (element) {
-        observer.observe(element)
-      }
+      if (element) observer.observe(element)
     })
 
     return () => {
       sections.forEach((section) => {
         const element = document.getElementById(section)
-        if (element) {
-          observer.unobserve(element)
-        }
+        if (element) observer.unobserve(element)
       })
     }
   }, [])
 
   return (
     <div className="app">
+      <FloatingIcons />
       <Navbar activeSection={activeSection} />
       <div className="main-content">
         <Hero />
-        <Quote />
+        <About />
+        <Experience />
         <Projects />
         <Skills />
-        <About />
         <Contact />
       </div>
       <Footer />
+      <DogMascot />
     </div>
   )
 }
