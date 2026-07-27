@@ -1,93 +1,140 @@
+import { useRef, useState, useMemo, useEffect } from 'react'
+import { useGSAP } from '@gsap/react'
 import { projects, personalInfo } from '../data/portfolio'
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { gsap, ScrollTrigger } from '../lib/gsap'
 import './Projects.css'
 
-const typeLabel = {
-  product:      'product',
-  architecture: 'arch',
-  security:     'security',
-  devops:       'devops',
-}
+const FILTER_OPTIONS = [
+  { key: 'all', label: 'All' },
+  { key: 'product', label: 'Product' },
+  { key: 'architecture', label: 'Architecture' },
+  { key: 'ai', label: 'AI / Agents' },
+  { key: 'data', label: 'Data' },
+  { key: 'security', label: 'Security' },
+  { key: 'devops', label: 'DevOps' },
+]
 
 const Projects = () => {
-  const [ref, isVisible] = useScrollAnimation(0.1)
+  const sectionRef = useRef(null)
+  const headerRef = useRef(null)
+  const gridRef = useRef(null)
+  const [activeFilter, setActiveFilter] = useState('all')
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === 'all') return projects
+    return projects.filter((p) => p.type === activeFilter)
+  }, [activeFilter])
+
+  useGSAP(
+    () => {
+      const header = headerRef.current
+      const grid = gridRef.current
+      if (!header || !grid) return
+
+      const mm = gsap.matchMedia()
+      const cards = gsap.utils.toArray('.project-card', grid)
+
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+        gsap.from(header, {
+          autoAlpha: 0,
+          y: 20,
+          duration: 0.5,
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: header,
+            start: 'top 90%',
+            once: true,
+          },
+        })
+
+        gsap.from(cards, {
+          autoAlpha: 0,
+          y: 20,
+          duration: 0.5,
+          stagger: 0.06,
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: grid,
+            start: 'top 92%',
+            once: true,
+          },
+        })
+      })
+
+      mm.add('(prefers-reduced-motion: reduce)', () => {
+        gsap.set([header, ...cards], { autoAlpha: 1, y: 0 })
+      })
+
+      return () => mm.revert()
+    },
+    { scope: sectionRef, dependencies: [filteredProjects.length] }
+  )
+
+  useEffect(() => {
+    ScrollTrigger.refresh()
+  }, [filteredProjects.length])
 
   return (
-    <section id="projects" className="projects" ref={ref}>
-      <div className={`projects-header ${isVisible ? 'animate-in' : ''}`}>
-        <h2 className="section-title">
-          <span className="title-hash">#</span>projects
-        </h2>
+    <section id="projects" className="projects" ref={sectionRef}>
+      <div className="projects-header" ref={headerRef}>
+        <h2 className="section-title">Selected Work</h2>
         <a
           href={personalInfo.social.github}
           target="_blank"
           rel="noopener noreferrer"
           className="view-all"
         >
-          view all on github
+          GitHub
         </a>
       </div>
 
-      <div className="projects-grid">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className={`project-card ${isVisible ? 'animate-in' : ''}`}
-            style={{ transitionDelay: `${index * 0.08}s` }}
+      <div className="projects-filters">
+        {FILTER_OPTIONS.map(({ key, label }) => (
+          <button
+            key={key}
+            type="button"
+            className={`filter-pill ${activeFilter === key ? 'active' : ''}`}
+            onClick={() => setActiveFilter(key)}
           >
-            {/* Terminal chrome bar */}
-            <div className="card-chrome">
-              <div className="chrome-dots">
-                <span className="chrome-dot" />
-                <span className="chrome-dot" />
-                <span className="chrome-dot" />
-              </div>
-              <span className="chrome-filename">
-                {project.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/-$/, '')}.tf
-              </span>
-              <span className="chrome-type">{typeLabel[project.type] ?? project.type}</span>
-            </div>
+            {label}
+          </button>
+        ))}
+      </div>
 
-            {/* Image with hover overlay */}
-            <div className="project-image">
-              <img src={project.image} alt={project.title} loading="lazy" />
-              <div className="project-overlay">
-                {project.link && (
+      <div className="projects-grid" ref={gridRef}>
+        {filteredProjects.map((project) => (
+          <article key={project.title} className="project-card">
+            <div className="project-content">
+              <div className="project-meta">
+                <span className="project-type-tag">{project.type}</span>
+                {project.featured && <span className="featured-marker">Featured</span>}
+              </div>
+
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+
+              <div className="project-tech">
+                {project.tech.map((tag) => (
+                  <span key={tag} className="tech-tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {project.link && (
+                <div className="project-actions">
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="overlay-btn overlay-btn-primary"
+                    className="project-link"
                   >
-                    LIVE ↗
+                    View live
                   </a>
-                )}
-                <a
-                  href={personalInfo.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="overlay-btn overlay-btn-ghost"
-                >
-                  CODE
-                </a>
-              </div>
+                </div>
+              )}
             </div>
-
-            {/* Content */}
-            <div className="project-content">
-              <div className="project-meta">
-                <span className="project-type-tag">{typeLabel[project.type] ?? project.type}</span>
-                {project.featured && <span className="featured-marker">featured</span>}
-              </div>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-description">{project.description}</p>
-              <div className="project-tech">
-                {project.tech.map((tech, i) => (
-                  <span key={i} className="tech-tag">{tech}</span>
-                ))}
-              </div>
-            </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

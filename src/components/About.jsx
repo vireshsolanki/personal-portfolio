@@ -11,7 +11,7 @@ const About = () => {
       <div className="about-inner">
 
         <h2 className={`about-heading ${isVisible ? 'animate-in' : ''}`}>
-          <span className="title-hash">#</span>about-me
+          About
         </h2>
 
         <div className="about-body">

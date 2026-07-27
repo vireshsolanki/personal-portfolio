@@ -54,10 +54,10 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="contact-container">
-        <h2 className="section-title"><span className="title-hash">#</span>contacts</h2>
+        <h2 className="section-title">Contact</h2>
         <div className="contact-content">
           <p className="contact-description">
-            I'm interested in freelance opportunities for AWS Cloud & DevOps projects. However, if you have other requests or questions, don't hesitate to contact me.
+            Open to a brief call to exchange ideas on cloud architecture and DevOps, reach out and we can find a time that works.
           </p>
           <div className="contact-box">
             <h3 className="contact-box-title">Message me here</h3>

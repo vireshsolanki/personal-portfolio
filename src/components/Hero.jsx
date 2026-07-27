@@ -1,5 +1,8 @@
-import { useState, useEffect } from 'react'
-import { personalInfo } from '../data/portfolio'
+import { useState, useEffect, useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import { personalInfo, certifications } from '../data/portfolio'
+import { gsap } from '../lib/gsap'
+import CredlyBadge from './CredlyBadge'
 import './Hero.css'
 
 const ROLES = [
@@ -13,6 +16,8 @@ const Hero = () => {
   const [displayed, setDisplayed] = useState('')
   const [deleting, setDeleting] = useState(false)
   const [showScroll, setShowScroll] = useState(true)
+  const containerRef = useRef(null)
+  const ctaRef = useRef(null)
 
   useEffect(() => {
     const current = ROLES[roleIndex]
@@ -38,15 +43,72 @@ const Hero = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia()
+
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.65 } })
+        tl.from('.hero-name', { autoAlpha: 0, y: 28 })
+          .from('.hero-role-line', { autoAlpha: 0, y: 28 }, '-=0.35')
+          .from('.hero-desc', { autoAlpha: 0, y: 28 }, '-=0.35')
+          .from('.hero-actions', { autoAlpha: 0, y: 28 }, '-=0.35')
+          .from('.hero-photo-side', { autoAlpha: 0, y: 28 }, '-=0.35')
+      })
+
+      mm.add('(prefers-reduced-motion: reduce)', () => {
+        gsap.set(
+          ['.hero-name', '.hero-role-line', '.hero-desc', '.hero-actions', '.hero-photo-side'],
+          { autoAlpha: 1, y: 0 }
+        )
+      })
+    },
+    { scope: containerRef }
+  )
+
+  useGSAP(
+    () => {
+      const cta = ctaRef.current
+      if (!cta) return undefined
+
+      const mm = gsap.matchMedia()
+      let xTo
+      let yTo
+
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+        xTo = gsap.quickTo(cta, 'x', { duration: 0.4, ease: 'power3.out' })
+        yTo = gsap.quickTo(cta, 'y', { duration: 0.4, ease: 'power3.out' })
+
+        const onMove = (e) => {
+          const rect = cta.getBoundingClientRect()
+          const x = e.clientX - rect.left - rect.width / 2
+          const y = e.clientY - rect.top - rect.height / 2
+          xTo(x * 0.25)
+          yTo(y * 0.25)
+        }
+
+        const onLeave = () => {
+          gsap.to(cta, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.5)' })
+        }
+
+        cta.addEventListener('mousemove', onMove)
+        cta.addEventListener('mouseleave', onLeave)
+
+        return () => {
+          cta.removeEventListener('mousemove', onMove)
+          cta.removeEventListener('mouseleave', onLeave)
+        }
+      })
+
+      return () => mm.revert()
+    },
+    { scope: ctaRef }
+  )
+
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero" ref={containerRef}>
       <div className="hero-content">
         <div className="hero-text">
-          <div className="hero-badge">
-            <span className="badge-dot" />
-            Open to consulting engagements
-          </div>
-
           <h1 className="hero-name">{personalInfo.name}</h1>
 
           <div className="hero-role-line">
@@ -57,8 +119,12 @@ const Hero = () => {
           <p className="hero-desc">{personalInfo.description}</p>
 
           <div className="hero-actions">
-            <a href="#contact" className="btn btn-primary">Let's Connect</a>
-            <a href="#projects" className="btn btn-ghost">View Work</a>
+            <a ref={ctaRef} href="#contact" className="btn btn-primary hero-cta">
+              Let's Connect
+            </a>
+            <a href="#projects" className="btn btn-ghost">
+              View Work
+            </a>
           </div>
 
           <div className="hero-company">
@@ -71,6 +137,27 @@ const Hero = () => {
           <div className="hero-photo-frame">
             <img src={personalInfo.photo} alt={personalInfo.name} />
           </div>
+
+          <a
+            href={certifications[0].credlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-cert-card"
+            aria-label={`${certifications[0].name} ${certifications[0].level}, verify on Credly`}
+          >
+            <CredlyBadge
+              badgeImage={certifications[0].badgeImage}
+              size={72}
+              alt={certifications[0].name}
+              linked={false}
+            />
+            <span className="hero-cert-copy">
+              <span className="hero-cert-name">{certifications[0].name}</span>
+              <span className="hero-cert-level">{certifications[0].level}</span>
+              <span className="hero-cert-verify">Verify on Credly ↗</span>
+            </span>
+          </a>
+
           <div className="hero-status-pill">
             <span className="status-dot" />
             {personalInfo.tagline}

@@ -9,7 +9,7 @@ const Experience = () => {
     <section id="experience" className="experience" ref={ref}>
       <div className={`experience-header ${isVisible ? 'animate-in' : ''}`}>
         <h2 className="experience-heading">
-          <span className="title-hash">#</span>experience
+          Experience
         </h2>
       </div>
       <div className="experience-timeline">
