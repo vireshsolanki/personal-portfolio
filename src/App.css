@@ -13,17 +13,47 @@
    DESIGN SYSTEM - CSS CUSTOM PROPERTIES
    ============================================ */
 :root {
-  /* Color System - From Figma Design */
-  --bg-primary: #0C0C0C;
-  --bg-secondary: #141414;
-  --bg-tertiary: #1C1C1C;
-  --primary: #EEEEEE;
-  --secondary: #777777;
-  --text: #FFFFFF;
-  --text-dim: #999999;
-  --text-subtle: #505050;
-  --border: rgba(255, 255, 255, 0.08);
-  --overlay: rgba(12, 12, 12, 0.96);
+  /* Luxury light palette */
+  --champagne: #FAF6F1;
+  --pearl: #F0EAE2;
+  --ink: #1E1A17;
+  --ink-muted: #5C5650;
+  --ink-faint: #8A827A;
+  --gold: #B8956B;
+  --gold-bright: #C9A961;
+  --gold-deep: #96784A;
+  --line: rgba(30, 26, 23, 0.09);
+
+  /* Semantic tokens */
+  --ivory: var(--champagne);
+  --stone: var(--pearl);
+  --bronze: var(--gold);
+  --bronze-light: var(--gold-bright);
+  --bg-primary: var(--champagne);
+  --bg-secondary: var(--pearl);
+  --bg-tertiary: var(--pearl);
+  --surface: var(--champagne);
+  --primary: var(--gold-deep);
+  --secondary: var(--gold-bright);
+  --text: var(--ink);
+  --text-dim: var(--ink-muted);
+  --text-subtle: var(--ink-faint);
+  --border: var(--line);
+  --overlay: var(--champagne);
+
+  /* Legacy aliases */
+  --cream: var(--ivory);
+  --tan: var(--stone);
+  --gray: var(--ink-muted);
+  --salmon: var(--bronze-light);
+  --coral: var(--bronze);
+  --box: var(--line);
+  --yellow: var(--ivory);
+  --lime: var(--bronze-light);
+  --pink: var(--bronze-light);
+  --lavender: var(--bronze);
+  --lilac: var(--stone);
+  --sage: var(--ivory);
   
   /* Spacing System (8px grid) */
   --space-xs: 8px;
@@ -54,12 +84,12 @@
   --font-caption: 12px;
   
   /* Shadow System */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
-  --shadow-glow-primary: 0 0 40px rgba(255, 255, 255, 0.1);
-  --shadow-glow-secondary: 0 0 40px rgba(255, 255, 255, 0.07);
+  --shadow-sm: 0 4px 20px rgba(30, 26, 23, 0.05);
+  --shadow-md: 0 8px 32px rgba(30, 26, 23, 0.07);
+  --shadow-lg: 0 16px 48px rgba(30, 26, 23, 0.09);
+  --shadow-xl: 0 24px 64px rgba(30, 26, 23, 0.11);
+  --shadow-glow-primary: 0 0 40px rgba(201, 169, 97, 0.22);
+  --shadow-glow-secondary: 0 0 32px rgba(184, 149, 107, 0.16);
   
   /* Animation Timing */
   --timing-fast: 0.2s;
@@ -71,6 +101,13 @@
   --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
   --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   --ease-in-out: cubic-bezier(0.4, 0.0, 0.6, 1);
+
+  --accent-cyan: var(--coral);
+  --accent-cyan-glow: rgba(201, 169, 97, 0.25);
+
+  /* Motion tokens for GSAP */
+  --ease-gsap-out: power3.out;
+  --ease-gsap-elastic: elastic.out(1, 0.5);
 }
 
 /* ============================================
@@ -79,6 +116,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  background: var(--bg-primary);
 }
 
 body {
@@ -86,10 +124,30 @@ body {
   background: var(--bg-primary);
   color: var(--text);
   line-height: 1.6;
+  cursor: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow-x: hidden;
+}
+
+a,
+button,
+[role='button'],
+.filter-pill,
+.scroll-hint,
+.credly-badge-link {
+  cursor: pointer;
+}
+
+body.cursor-hidden {
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  body.cursor-hidden {
+    cursor: auto;
+  }
 }
 
 
@@ -99,27 +157,32 @@ body {
   position: relative;
   z-index: 1;
   animation: fadeIn 0.4s ease-in;
+  background: linear-gradient(165deg, var(--champagne) 0%, #F5EFE8 45%, var(--pearl) 100%);
+  color: var(--text);
 }
 
 .main-content {
   width: 100%;
+  background: var(--bg-primary);
 }
 
 section {
   padding: var(--space-4xl) var(--space-3xl);
   position: relative;
   scroll-margin-top: 80px;
+  background: transparent;
+  color: var(--text);
 }
 
 .section-title {
-  font-size: var(--font-h2);
-  font-weight: 700;
+  font-family: 'Fira Code', monospace;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
   margin-bottom: var(--space-2xl);
-  background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -1px;
+  color: var(--gold-deep);
+  background: none;
+  -webkit-text-fill-color: unset;
+  letter-spacing: -0.02em;
   position: relative;
   display: inline-block;
 }
@@ -127,19 +190,16 @@ section {
 .section-title::after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -12px;
   left: 0;
-  width: 60px;
-  height: 3px;
-  background: var(--primary);
-  border-radius: 2px;
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-bright), var(--gold));
+  border-radius: 0;
 }
 
 .title-hash {
-  color: var(--primary);
-  font-weight: 700;
-  margin-right: 4px;
-  -webkit-text-fill-color: var(--primary);
+  display: none;
 }
 
 /* Links */

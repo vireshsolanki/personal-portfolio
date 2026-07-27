@@ -10,7 +10,7 @@ const Navbar = ({ activeSection }) => {
     { id: 'about', label: 'About' },
     { id: 'projects', label: 'Work' },
     { id: 'skills', label: 'Skills' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Contact' },
   ]
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const Navbar = ({ activeSection }) => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          {navItems.map(item => (
+          {navItems.map((item) => (
             <li key={item.id}>
               <a
                 onClick={() => scrollToSection(item.id)}
@@ -46,20 +46,17 @@ const Navbar = ({ activeSection }) => {
           ))}
         </ul>
 
-        <a 
-          onClick={() => scrollToSection('contact')} 
-          className="nav-cta"
-        >
+        <a onClick={() => scrollToSection('contact')} className="nav-cta">
           Let's Talk
         </a>
 
-        <div 
-          className={`mobile-toggle ${isOpen ? 'active' : ''}`} 
+        <div
+          className={`mobile-toggle ${isOpen ? 'active' : ''}`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </div>
       </div>
     </nav>

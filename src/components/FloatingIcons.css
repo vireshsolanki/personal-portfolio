@@ -8,8 +8,9 @@
 
 .float-icon {
   position: absolute;
-  color: #ffffff;
-  opacity: 0.07;
+  color: var(--gold);
+  opacity: 0.22;
+  filter: drop-shadow(0 2px 12px rgba(150, 120, 74, 0.12));
 }
 
 .float-icon svg {
@@ -45,5 +46,14 @@
 }
 
 @media (max-width: 767px) {
-  .float-icon { opacity: 0.04; }
+  .float-icon {
+    opacity: 0.16;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-icon--up,
+  .float-icon--down {
+    animation: none;
+  }
 }

@@ -7,31 +7,19 @@
   margin: 0 auto;
 }
 
-/* Section heading */
 .about-heading {
-  font-size: 13px;
+  font-family: 'Fira Code', monospace;
+  font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--primary);
+  letter-spacing: -0.02em;
+  color: var(--ink);
   background: none;
   -webkit-text-fill-color: unset;
   margin-bottom: var(--space-2xl);
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth);
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
 .about-heading::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-  margin-left: var(--space-sm);
-  max-width: 260px;
+  display: none;
 }
 
 .about-heading.animate-in {
@@ -39,7 +27,6 @@
   transform: translateY(0);
 }
 
-/* Two-column layout */
 .about-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -47,11 +34,8 @@
   align-items: start;
 }
 
-/* ── Left: bio ── */
 .about-bio {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s var(--ease-smooth) 0.05s, transform 0.6s var(--ease-smooth) 0.05s;
+  transition: none;
 }
 
 .about-bio.animate-in {
@@ -60,32 +44,26 @@
 }
 
 .bio-intro {
-  font-size: clamp(22px, 3vw, 30px);
+  font-family: 'Fira Code', monospace;
+  font-size: clamp(24px, 3vw, 32px);
   font-weight: 600;
-  color: var(--text);
+  color: var(--ink);
   margin-bottom: var(--space-lg);
-  line-height: 1.2;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .bio-text {
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.85;
   color: var(--text-dim);
   margin-bottom: var(--space-md);
 }
 
-.bio-text:last-child {
-  margin-bottom: 0;
-}
-
-/* ── Right: current role ── */
 .about-role {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
-  /* Thin left accent instead of a box */
+  transition: none;
   padding-left: var(--space-xl);
-  border-left: 2px solid rgba(255, 255, 255, 0.12);
+  border-left: 1px solid var(--bronze-light);
 }
 
 .about-role.animate-in {
@@ -101,38 +79,38 @@
 }
 
 .live-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #4ADE80;
-  box-shadow: 0 0 6px rgba(74, 222, 128, 0.8);
+  background: var(--bronze-light);
   animation: livePulse 2s ease-in-out infinite;
   flex-shrink: 0;
 }
 
 @keyframes livePulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.5; transform: scale(0.85); }
+  50%       { opacity: 0.45; transform: scale(0.88); }
 }
 
 .live-label {
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #4ADE80;
+  letter-spacing: 0.12em;
+  color: var(--text-subtle);
 }
 
 .role-title {
-  font-size: 22px;
+  font-family: 'Fira Code', monospace;
+  font-size: 24px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--ink);
   margin-bottom: 4px;
   line-height: 1.2;
 }
 
 .role-company {
   font-size: 15px;
-  color: var(--primary);
+  color: var(--bronze);
   font-weight: 500;
   margin-bottom: 4px;
 }
@@ -144,9 +122,9 @@
 }
 
 .role-divider {
-  width: 40px;
+  width: 32px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--bronze-light);
   margin-bottom: var(--space-lg);
 }
 
@@ -161,19 +139,18 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-dim);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .role-bullet {
-  color: var(--primary);
-  font-size: 10px;
+  color: var(--bronze-light);
+  font-size: 8px;
   flex-shrink: 0;
-  margin-top: 5px;
+  margin-top: 7px;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .about-body {
     grid-template-columns: 1fr;

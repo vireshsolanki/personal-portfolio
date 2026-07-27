@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Impact from './components/Impact'
 import About from './components/About'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
@@ -9,6 +10,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FloatingIcons from './components/FloatingIcons'
 import DogMascot from './components/DogMascot'
+import { ScrollTrigger } from './lib/gsap'
 import './App.css'
 
 function App() {
@@ -46,12 +48,17 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    document.fonts.ready.then(() => ScrollTrigger.refresh())
+  }, [])
+
   return (
     <div className="app">
       <FloatingIcons />
       <Navbar activeSection={activeSection} />
       <div className="main-content">
         <Hero />
+        <Impact />
         <About />
         <Experience />
         <Projects />

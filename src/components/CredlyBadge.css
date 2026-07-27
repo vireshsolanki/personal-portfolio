@@ -1,0 +1,28 @@
+.credly-badge-link {
+  display: inline-block;
+  line-height: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  flex-shrink: 0;
+}
+
+.credly-badge-static {
+  cursor: inherit;
+}
+
+a.credly-badge-link:hover,
+.hero-cert-card:hover .credly-badge-link,
+.cert-inline:hover .credly-badge-link {
+  transform: scale(1.04);
+  filter: brightness(1.06);
+}
+
+.credly-badge-img {
+  display: block;
+  width: var(--badge-size, 48px);
+  height: var(--badge-size, 48px);
+  object-fit: contain;
+  border: none;
+  background: transparent;
+}

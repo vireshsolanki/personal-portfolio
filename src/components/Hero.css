@@ -8,78 +8,66 @@
   overflow: hidden;
 }
 
-/* Content sits above topology */
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 1040px;
+  max-width: 1080px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px;
+  gap: 72px;
 }
 
-/* ── Left: Text ── */
 .hero-text {
   flex: 1;
-  max-width: 540px;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-full);
-  font-size: 11px;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--space-md);
-  animation: fadeIn 0.6s var(--ease-smooth) 0.1s backwards;
-}
-
-.badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #4ADE80;
-  box-shadow: 0 0 6px rgba(74, 222, 128, 0.8);
-  flex-shrink: 0;
-  animation: pulse 2s ease-in-out infinite;
+  max-width: 520px;
 }
 
 .hero-name {
-  font-size: clamp(36px, 5vw, 58px);
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.1;
-  margin-bottom: 10px;
-  letter-spacing: -1px;
-  animation: fadeInUp 0.6s var(--ease-smooth) 0.2s backwards;
+  font-family: 'Fira Code', monospace;
+  font-size: clamp(42px, 5.5vw, 64px);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.05;
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
 }
 
 .hero-role-line {
-  height: 38px;
+  height: 36px;
   display: flex;
   align-items: center;
   margin-bottom: var(--space-lg);
-  animation: fadeInUp 0.6s var(--ease-smooth) 0.35s backwards;
 }
 
 .hero-role-typed {
-  font-size: clamp(16px, 2.2vw, 22px);
+  font-size: clamp(17px, 2vw, 20px);
   font-weight: 500;
-  color: var(--primary);
+  color: var(--gold-deep);
+  letter-spacing: 0.01em;
 }
 
 .hero-cursor {
-  color: var(--primary);
+  color: var(--bronze-light);
   font-weight: 300;
   animation: blink 1s step-end infinite;
   margin-left: 2px;
+}
+
+.hero-desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: var(--space-xl);
+  max-width: 46ch;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 @keyframes blink {
@@ -87,177 +75,186 @@
   50%       { opacity: 0; }
 }
 
-.hero-desc {
-  font-size: 15px;
-  color: var(--text-dim);
-  line-height: 1.75;
-  margin-bottom: var(--space-xl);
-  animation: fadeInUp 0.6s var(--ease-smooth) 0.5s backwards;
-}
-
-/* ── CTAs ── */
-.hero-actions {
-  display: flex;
-  gap: var(--space-md);
-  margin-bottom: var(--space-xl);
-  animation: fadeInUp 0.6s var(--ease-smooth) 0.65s backwards;
-}
-
 .btn {
   font-family: 'Fira Code', monospace;
   font-size: 14px;
   font-weight: 500;
-  padding: 11px 24px;
+  padding: 14px 28px;
   text-decoration: none;
   transition: all var(--timing-normal) var(--ease-smooth);
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 999px;
+  border: none;
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: #1a1b1e;
-  border: 1px solid var(--primary);
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: var(--ink);
+  box-shadow: var(--shadow-glow-secondary);
 }
 
 .btn-primary:hover {
-  background: transparent;
-  color: var(--primary);
-  box-shadow: 0 0 28px rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  color: var(--champagne);
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--text-dim);
-  border: 1px solid var(--border);
+  color: var(--ink-muted);
+  padding: 14px 0;
 }
 
 .btn-ghost:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  color: var(--bronze);
 }
 
-/* ── Company line ── */
 .hero-company {
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 13px;
   color: var(--text-subtle);
-  animation: fadeInUp 0.6s var(--ease-smooth) 0.75s backwards;
+  letter-spacing: 0.02em;
 }
 
 .company-at {
-  color: var(--primary);
-  font-weight: 600;
+  color: var(--bronze-light);
+  font-weight: 500;
 }
 
 .company-name {
   color: var(--text-dim);
 }
 
-/* ── Right: Photo ── */
 .hero-photo-side {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  animation: fadeIn 0.8s var(--ease-smooth) 0.3s backwards;
+  align-items: center;
+  gap: 20px;
 }
 
 .hero-photo-frame {
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border-radius: 50%;
   position: relative;
+  box-shadow: var(--shadow-md);
 }
 
 .hero-photo-frame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.03) 0%,
-    transparent 50%
-  );
-  pointer-events: none;
+  display: none;
 }
 
-.hero-photo-frame img {
+.hero-photo-frame > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.85) contrast(1.05);
+  filter: saturate(0.92) contrast(1.02);
   display: block;
+}
+
+.hero-cert-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 300px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  color: var(--text);
+  transition: opacity var(--timing-normal);
+}
+
+.hero-cert-card:hover {
+  opacity: 0.72;
+}
+
+.hero-cert-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.hero-cert-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.hero-cert-level {
+  font-size: 11px;
+  color: var(--text-subtle);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-cert-verify {
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--bronze);
+  letter-spacing: 0.04em;
 }
 
 .hero-status-pill {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 300px;
-  padding: 9px 14px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
+  max-width: 300px;
   font-size: 12px;
-  color: var(--text-dim);
-  line-height: 1.4;
+  color: var(--text-subtle);
+  line-height: 1.5;
+  text-align: center;
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #4ADE80;
-  box-shadow: 0 0 6px rgba(74, 222, 128, 0.7);
+  background: var(--bronze-light);
   flex-shrink: 0;
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* ── Scroll hint ── */
 .scroll-hint {
   position: absolute;
-  bottom: 28px;
+  bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text-dim);
+  background: none;
+  border: none;
+  color: var(--text-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: border-color var(--timing-normal), color var(--timing-normal);
+  transition: color var(--timing-normal);
   animation: scrollBounce 2.5s ease-in-out infinite, fadeIn 1s ease 1.5s backwards;
 }
 
 .scroll-hint:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  color: var(--bronze);
 }
 
 @keyframes scrollBounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(7px); }
+  50%       { transform: translateX(-50%) translateY(6px); }
 }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.55; transform: scale(0.88); }
+  50%       { opacity: 0.5; transform: scale(0.9); }
 }
 
-/* ── Responsive ── */
 @media (max-width: 1023px) {
-  .hero-photo-frame { width: 260px; height: 260px; }
-  .hero-status-pill { width: 260px; }
-  .hero-name        { font-size: 36px; }
+  .hero-photo-frame { width: 240px; height: 240px; }
+  .hero-cert-card   { max-width: 240px; }
 }
 
 @media (max-width: 767px) {
@@ -271,11 +268,10 @@
     gap: var(--space-xl);
   }
 
+  .hero-desc { margin-left: auto; margin-right: auto; }
   .hero-photo-frame { width: 200px; height: 200px; }
-  .hero-status-pill { width: 200px; font-size: 11px; }
+  .hero-cert-card   { max-width: 220px; justify-content: center; }
   .hero-photo-side  { align-items: center; }
-  .hero-actions     { justify-content: center; }
-  .hero-badge       { margin: 0 auto var(--space-md); }
+  .hero-actions     { justify-content: center; flex-wrap: wrap; }
   .hero-company     { justify-content: center; }
-  .hero-name        { font-size: 30px; }
 }
