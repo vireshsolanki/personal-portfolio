@@ -122,6 +122,15 @@ const Hero = () => {
             <a ref={ctaRef} href="#contact" className="btn btn-primary hero-cta">
               Let's Connect
             </a>
+            <a
+              href={personalInfo.resume}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost hero-resume-cta"
+            >
+              Download Resume
+            </a>
             <a href="#projects" className="btn btn-ghost">
               View Work
             </a>

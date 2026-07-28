@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { personalInfo } from '../data/portfolio'
 import './Navbar.css'
 
 const Navbar = ({ activeSection }) => {
@@ -44,11 +45,33 @@ const Navbar = ({ activeSection }) => {
               </a>
             </li>
           ))}
+          <li className="nav-mobile-resume">
+            <a
+              href={personalInfo.resume}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-resume"
+            >
+              Resume
+            </a>
+          </li>
         </ul>
 
-        <a onClick={() => scrollToSection('contact')} className="nav-cta">
-          Let's Talk
-        </a>
+        <div className="nav-actions">
+          <a
+            href={personalInfo.resume}
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-resume"
+          >
+            Resume
+          </a>
+          <a onClick={() => scrollToSection('contact')} className="nav-cta">
+            Let's Talk
+          </a>
+        </div>
 
         <div
           className={`mobile-toggle ${isOpen ? 'active' : ''}`}

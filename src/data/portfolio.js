@@ -12,6 +12,7 @@ export const personalInfo = {
   email: "vireshsolanki58@gmail.com",
   phone: "+91 7043256368",
   photo: "/photo.jpeg?v=20250728",
+  resume: "/viresh-solanki-resume.pdf", // TODO: replace public/viresh-solanki-resume.pdf with the final resume PDF
 
   social: {
     linkedin: "https://www.linkedin.com/in/viresh-solanki/",
@@ -22,7 +23,7 @@ export const personalInfo = {
 }
 
 export const stats = [
-  { value: "2+", label: "Years Experience" },
+  { value: "2.5+", label: "Years Experience" },
   { value: "$5M+", label: "Transaction Volume Architected" },
   { value: "10K+", label: "Concurrent Users Served" },
   { value: "4", label: "Startups Advised" },
@@ -37,7 +38,6 @@ export const certifications = [
     name: "AWS Certified Solutions Architect",
     level: "Associate",
     issuer: "Amazon Web Services",
-    issuedDate: "REPLACE_WITH_ISSUE_DATE", // TODO: e.g. "Jan 2025"
     badgeId: "b131b442-865e-4770-b6cd-33e4347c796b",
     badgeImage: "/aws-sa-badge.png",
     credlyUrl: "https://www.credly.com/badges/b131b442-865e-4770-b6cd-33e4347c796b"
@@ -45,10 +45,10 @@ export const certifications = [
 ]
 
 export const about = {
-  lead: "Solutions Architect at Electromech Cloudtech Pvt. Ltd. with 2+ years designing cloud infrastructure on AWS. I work across the full stack of cloud, architecture, security, automation, and observability.",
+  lead: "Solutions Architect at Electromech Cloudtech Pvt. Ltd. with 2.5+ years designing cloud infrastructure on AWS. I work across the full stack of cloud, architecture, security, automation, and observability.",
   paragraphs: [
     "I specialize in transforming monolithic applications into microservices-based, containerized architectures on AWS. My work spans system design, disaster recovery automation, CI/CD pipelines, and security hardening, with a focus on building systems that are fault-tolerant and production-ready.",
-    "Outside of my core role, I advise startups on cloud adoption and infrastructure strategy, helping early-stage teams build on AWS the right way from day one. I'm also the builder behind ExamWarp, a SaaS platform deployed on AWS, helping students prepare for exams smarter. Python (intermediate) and Go (learning) complement my infrastructure toolkit.",
+    "Outside of my core role, I advise startups on cloud adoption and infrastructure strategy, helping early-stage teams build on AWS the right way from day one. I'm also the builder behind ExamWarp, an AI-powered SaaS platform helping students prepare for exams smarter, shipped entirely on free-tier infrastructure. Python (intermediate) and Go (learning) complement my infrastructure toolkit.",
   ]
 }
 
@@ -100,11 +100,12 @@ export const experience = [
     location: "Ahmedabad, Gujarat, India · Hybrid",
     description: "Designing and delivering cloud-native infrastructure and architecture solutions for enterprise and startup clients on AWS.",
     achievements: [
-      "Engineered microservices-based architectures and contributed to system design decisions for scalable, fault-tolerant applications",
-      "Automated disaster recovery failover/failback and cloud migrations using AWS CloudFormation and Python, significantly cutting downtime",
-      "Transformed monolithic applications into multi-tier, containerized infrastructures, improving both scalability and security posture",
-      "Built Grafana and Prometheus monitoring stacks with Slack alerting for proactive incident detection across client environments",
-      "Enhanced cloud security posture by implementing WAF, IAM best practices, CIS benchmarks, and DDoS mitigation strategies"
+      "Architected a multi-tenant, Shopify-like commerce platform serving 10,000+ concurrent users, with data-layer tenant isolation that removed the need for per-tenant infrastructure",
+      "Designed a fault-tolerant payment gateway processing $5M+ in transaction volume, using idempotent request handling, queue-based load leveling, and multi-AZ failover",
+      "Led AWS DMS migrations of live production databases with zero record loss, using CDC replication and full row-level validation before cutover",
+      "Deployed Apache Doris across roughly 5TB of data, powering real-time analytics dashboards over datasets that previously bottlenecked the warehouse",
+      "Architected automated disaster recovery using Python Lambda functions orchestrated through Step Functions and AWS DRS, enabling one-click failover and failback",
+      "Delivered the surrounding cloud foundation across client environments: monolith to containerized ECS Fargate modernization, Terraform and CloudFormation IaC, CI/CD automation, security hardening with WAF, IAM least-privilege and CIS benchmarks, and Grafana and Prometheus observability"
     ]
   }
 ]
@@ -112,40 +113,11 @@ export const experience = [
 // ============================================
 // PROJECTS
 // ============================================
-// ============================================
-// CLIENT STATS
-// ============================================
-export const clientStats = {
-  startups: {
-    count: "4+",
-    label: "Startups Advised",
-    headline: "Helped early-stage teams build on AWS the right way from day one",
-    highlights: [
-      "Zero-to-prod cloud infrastructure in under 2 weeks",
-      "Multi-environment setup: dev / staging / prod with IaC",
-      "Scaled from 0 to 50,000 users without rearchitecting",
-      "Cost guardrails and budget alerting from the start"
-    ]
-  },
-  enterprise: {
-    count: "7+",
-    label: "Enterprise Clients",
-    headline: "Delivered security hardening, modernization, and observability at scale",
-    highlights: [
-      "CIS benchmark compliance in 6 weeks",
-      "Monolith-to-microservices migrations with zero downtime",
-      "Grafana + Prometheus stacks with MTTD under 5 min",
-      "AWS Organizations, SCPs, and GuardDuty across multi-account setups"
-    ]
-  }
-}
-
 export const projects = [
   {
     title: "ExamWarp, SaaS Product",
-    description: "Built and launched ExamWarp (examwarp.vireshsaas.in), a SaaS platform helping students prepare for exams with smart study tools and practice tests. Full AWS infrastructure on ECS Fargate, RDS, CloudFront, and S3, with Terraform IaC and GitHub Actions CI/CD.",
-    image: "/projects/examwarp.svg",
-    tech: ["AWS ECS", "RDS", "CloudFront", "S3", "Python", "Terraform"],
+    description: "Built and launched ExamWarp (examwarp.vireshsaas.in), a SaaS platform helping students prepare for exams with smart study tools and practice tests. Shipped end to end on free-tier infrastructure, frontend on Vercel and backend on Render, with a Gemini 2.5 Flash key fallback chain that keeps generation running when a key hits its rate limit.",
+    tech: ["Vercel", "Render", "Gemini 2.5 Flash", "Key Fallback"],
     featured: true,
     link: "https://examwarp.vireshsaas.in",
     type: "product",
@@ -154,7 +126,6 @@ export const projects = [
   {
     title: "Startup Cloud Foundation",
     description: "Designed production-ready AWS cloud infrastructure for an early-stage startup from zero, multi-environment setup (dev/staging/prod), CI/CD pipeline, auto-scaling ECS services, RDS Multi-AZ, and cost guardrails. Infrastructure scaled from 100 to 50,000 users without rearchitecting.",
-    image: "/projects/startup-cloud.svg",
     tech: ["AWS VPC", "ECS Fargate", "Terraform", "GitHub Actions", "CloudWatch", "WAF"],
     featured: true,
     type: "architecture"
@@ -162,7 +133,6 @@ export const projects = [
   {
     title: "Enterprise Security Hardening",
     description: "Audited and hardened AWS infrastructure for an enterprise client, multi-account AWS Organizations with SCPs, GuardDuty threat detection, WAF rule sets, Security Hub CIS benchmark remediation, and IAM least-privilege overhaul. Environment reached compliance-ready state in 6 weeks.",
-    image: "/projects/security.svg",
     tech: ["AWS Organizations", "GuardDuty", "WAF", "Security Hub", "IAM", "Config Rules"],
     featured: true,
     type: "security"
@@ -170,7 +140,6 @@ export const projects = [
   {
     title: "Serverless Geofence API",
     description: "Designed and deployed serverless geofence APIs on AWS using Lambda and API Gateway with GraphQL integration for real-time location tracking. Handles thousands of location events per second at sub-50ms P99 latency with zero infrastructure management overhead.",
-    image: "/projects/geofence-api.svg",
     tech: ["AWS Lambda", "API Gateway", "GraphQL", "DynamoDB", "CloudWatch"],
     featured: true,
     type: "architecture"
@@ -178,7 +147,6 @@ export const projects = [
   {
     title: "Architecture Modernization",
     description: "Transformed a monolithic application to a multi-tier containerized architecture with private subnets and CloudFront-based content delivery. Achieved 99.9% uptime SLA, 70% faster deployments via rolling updates, and 40% infrastructure cost reduction through right-sizing and reserved capacity.",
-    image: "/projects/architecture.svg",
     tech: ["ECS Fargate", "CloudFront", "Docker", "Terraform", "ALB"],
     featured: false,
     type: "architecture"
@@ -186,7 +154,6 @@ export const projects = [
   {
     title: "Observability Platform",
     description: "Built a full-stack observability platform with Grafana and Prometheus covering infrastructure, application, and business metrics. Integrated Slack and PagerDuty alerting with severity-based routing. Reduced mean time to detection (MTTD) from hours to under 5 minutes.",
-    image: "/projects/monitoring.svg",
     tech: ["Grafana", "Prometheus", "Alertmanager", "CloudWatch", "Slack API"],
     featured: false,
     type: "devops"
@@ -194,7 +161,6 @@ export const projects = [
   {
     title: "Zero-Loss Database Migration, AWS DMS",
     description: "Migrated a live production database to AWS with zero record loss, using DMS continuous replication (CDC) and a full row-level validation pass before cutover, with no downtime for the source system.",
-    image: "/projects/db-migration.svg",
     tech: ["AWS DMS", "RDS", "CDC", "CloudWatch", "Python"],
     featured: true,
     link: null, // TODO: add case study or repo link
@@ -203,7 +169,6 @@ export const projects = [
   {
     title: "Multi-Tenant E-Commerce Platform",
     description: "Architected a multi-tenant, Shopify-like e-commerce platform with data-layer tenant isolation and horizontally scalable compute, now serving around 10,000 concurrent users without per-tenant infrastructure duplication.",
-    image: "/projects/ecommerce.svg",
     tech: ["AWS ECS", "RDS Multi-AZ", "Redis", "API Gateway", "Terraform", "CloudFront"],
     featured: true,
     link: null, // TODO: add case study or demo link
@@ -212,7 +177,6 @@ export const projects = [
   {
     title: "Fault-Tolerant Payment Gateway",
     description: "Architected a fault-tolerant, horizontally scalable payment gateway handling roughly $5M in transaction volume under heavy concurrent load, using idempotent request handling, queue-based load leveling, and multi-AZ failover.",
-    image: "/projects/payment-gateway.svg",
     tech: ["AWS ECS", "SQS", "RDS Multi-AZ", "ElastiCache", "API Gateway", "CloudWatch"],
     featured: true,
     link: null, // TODO: add case study link
@@ -221,37 +185,36 @@ export const projects = [
   {
     title: "Multi-Agent Workflow System",
     description: "Built a multi-agent workflow system with human-in-the-loop checkpoints, using the Saga pattern for transaction consistency and a LangChain-based memory layer to cut token usage on long-running agent sessions.",
-    image: "/projects/multi-agent.svg",
     tech: ["LangChain", "Python", "Saga Pattern", "AWS Lambda", "SQS", "DynamoDB"],
     featured: true,
-    link: null, // TODO: add repo or write-up link
+    link: null,
+    repo: "https://github.com/vireshsolanki/REPLACE_WITH_REPO_NAME", // TODO: set the GitHub repo URL
     type: "ai",
     personal: true
   },
   {
     title: "AWS Pricing Calculator, MCP Server",
     description: "Built an AWS pricing calculator as an MCP (Model Context Protocol) server, letting AI agents query live AWS cost estimates and generate shareable cost-breakdown links.",
-    image: "/projects/mcp-pricing.svg",
     tech: ["MCP", "Python", "AWS Pricing API", "Lambda", "API Gateway"],
     featured: false,
-    link: null, // TODO: add repo/demo link
+    link: null,
+    repo: "https://github.com/vireshsolanki/REPLACE_WITH_REPO_NAME", // TODO: set the GitHub repo URL
     type: "ai",
     personal: true
   },
   {
     title: "Self-Hosted CA, IAM Roles Anywhere Alternative",
     description: "Designed a self-hosted certificate authority in AWS KMS as a lower-cost alternative to AWS Private CA for IAM Roles Anywhere, issuing short-lived X.509 certificates for hybrid workload identity.",
-    image: "/projects/self-hosted-ca.svg",
     tech: ["AWS KMS", "IAM Roles Anywhere", "X.509 PKI", "Python", "ACM"],
     featured: false,
-    link: null, // TODO: add repo/write-up link
+    link: null,
+    repo: "https://github.com/vireshsolanki/REPLACE_WITH_REPO_NAME", // TODO: set the GitHub repo URL
     type: "security",
     personal: true
   },
   {
     title: "Apache Doris Real-Time Analytics Platform",
     description: "Deployed and provisioned Apache Doris to handle around 5TB of data, powering real-time analytics dashboards over high-cardinality datasets that had previously bottlenecked the existing warehouse.",
-    image: "/projects/apache-doris.svg",
     tech: ["Apache Doris", "AWS EC2", "Terraform", "Grafana", "Kafka"],
     featured: true,
     link: null, // TODO: add case study link

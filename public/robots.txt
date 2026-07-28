@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vireshsolanki.dev/sitemap.xml
+Sitemap: https://portfolio.vireshsaas.in/sitemap.xml

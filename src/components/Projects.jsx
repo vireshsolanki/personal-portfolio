@@ -122,16 +122,28 @@ const Projects = () => {
                 ))}
               </div>
 
-              {project.link && (
+              {(project.link || project.repo) && (
                 <div className="project-actions">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                  >
-                    View live
-                  </a>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                    >
+                      View live
+                    </a>
+                  )}
+                  {project.repo && (
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link project-link-secondary"
+                    >
+                      View source
+                    </a>
+                  )}
                 </div>
               )}
             </div>

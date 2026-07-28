@@ -1,56 +1,7 @@
-import { useState } from 'react'
 import { personalInfo } from '../data/portfolio'
 import './Contact.css'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
-  const [errors, setErrors] = useState({})
-
-  const validateEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const newErrors = {}
-
-    if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors)
-      return
-    }
-
-    // Create mailto link with form data
-    const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`
-    
-    // Open default email client
-    window.location.href = mailtoLink
-    
-    // Show success message
-    alert('Opening your email client... Please send the email to complete your message.')
-    
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' })
-    setErrors({})
-  }
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-    if (errors[e.target.name]) {
-      setErrors({ ...errors, [e.target.name]: '' })
-    }
-  }
-
   return (
     <section id="contact" className="contact">
       <div className="contact-container">
