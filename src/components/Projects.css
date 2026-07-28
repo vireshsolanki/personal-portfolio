@@ -140,6 +140,17 @@
   letter-spacing: 0.06em;
 }
 
+.personal-marker {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-subtle);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+
 .project-title {
   font-family: 'Fira Code', monospace;
   font-size: clamp(1.1rem, 1.8vw, 1.35rem);

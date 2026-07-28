@@ -48,7 +48,7 @@ export const about = {
   lead: "Solutions Architect at Electromech Cloudtech Pvt. Ltd. with 2+ years designing cloud infrastructure on AWS. I work across the full stack of cloud, architecture, security, automation, and observability.",
   paragraphs: [
     "I specialize in transforming monolithic applications into microservices-based, containerized architectures on AWS. My work spans system design, disaster recovery automation, CI/CD pipelines, and security hardening, with a focus on building systems that are fault-tolerant and production-ready.",
-    "Outside of my core role, I advise startups on cloud adoption and infrastructure strategy, helping early-stage teams build on AWS the right way from day one. I'm also the builder behind ExamWrap, a SaaS platform deployed on AWS, helping students prepare for exams smarter. Python (intermediate) and Go (learning) complement my infrastructure toolkit.",
+    "Outside of my core role, I advise startups on cloud adoption and infrastructure strategy, helping early-stage teams build on AWS the right way from day one. I'm also the builder behind ExamWarp, a SaaS platform deployed on AWS, helping students prepare for exams smarter. Python (intermediate) and Go (learning) complement my infrastructure toolkit.",
   ]
 }
 
@@ -142,9 +142,9 @@ export const clientStats = {
 
 export const projects = [
   {
-    title: "ExamWrap, SaaS Product",
-    description: "Built and launched ExamWrap (examwarp.vireshsaas.in), a SaaS platform helping students prepare for exams with smart study tools and practice tests. Full AWS infrastructure on ECS Fargate, RDS, CloudFront, and S3, with Terraform IaC and GitHub Actions CI/CD.",
-    image: "/projects/examwrap.svg",
+    title: "ExamWarp, SaaS Product",
+    description: "Built and launched ExamWarp (examwarp.vireshsaas.in), a SaaS platform helping students prepare for exams with smart study tools and practice tests. Full AWS infrastructure on ECS Fargate, RDS, CloudFront, and S3, with Terraform IaC and GitHub Actions CI/CD.",
+    image: "/projects/examwarp.svg",
     tech: ["AWS ECS", "RDS", "CloudFront", "S3", "Python", "Terraform"],
     featured: true,
     link: "https://examwarp.vireshsaas.in",

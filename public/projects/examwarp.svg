@@ -115,7 +115,7 @@
   <text x="700" y="364" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Auto alerts</text>
 
   <!-- Title -->
-  <text x="400" y="42" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">EXAMWRAP — AWS ARCHITECTURE</text>
+  <text x="400" y="42" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">EXAMWARP — AWS ARCHITECTURE</text>
   <text x="400" y="60" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">examwarp.vireshsaas.in · SaaS Exam Prep Platform</text>
 
   <!-- Bottom border line -->
