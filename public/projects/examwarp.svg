@@ -72,7 +72,7 @@
   <text x="391" y="185" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="9" font-weight="600">ECS FARGATE</text>
   <rect x="340" y="193" width="102" height="36" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
   <text x="391" y="207" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">API Container</text>
-  <text x="391" y="220" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">examwrap-backend</text>
+  <text x="391" y="220" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">examwarp-backend</text>
   <rect x="340" y="237" width="102" height="36" rx="3" fill="#111111" stroke="#888888" stroke-opacity="0.2" stroke-width="1"/>
   <text x="391" y="251" text-anchor="middle" fill="#888888" font-family="monospace" font-size="8">Worker Container</text>
   <text x="391" y="264" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">exam-processor</text>
@@ -115,8 +115,8 @@
   <text x="700" y="364" text-anchor="middle" fill="#555555" font-family="monospace" font-size="8">Auto alerts</text>
 
   <!-- Title -->
-  <text x="400" y="42" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">EXAMWRAP — AWS ARCHITECTURE</text>
-  <text x="400" y="60" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">examwrap.vireshsaas.in · SaaS Exam Prep Platform</text>
+  <text x="400" y="42" text-anchor="middle" fill="#EEEEEE" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2">EXAMWARP — AWS ARCHITECTURE</text>
+  <text x="400" y="60" text-anchor="middle" fill="#555555" font-family="monospace" font-size="9">examwarp.vireshsaas.in · SaaS Exam Prep Platform</text>
 
   <!-- Bottom border line -->
   <line x1="40" y1="420" x2="760" y2="420" stroke="#888888" stroke-opacity="0.08" stroke-width="1"/>

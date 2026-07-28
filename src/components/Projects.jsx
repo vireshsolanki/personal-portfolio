@@ -107,6 +107,7 @@ const Projects = () => {
             <div className="project-content">
               <div className="project-meta">
                 <span className="project-type-tag">{project.type}</span>
+                {project.personal && <span className="personal-marker">Personal Project</span>}
                 {project.featured && <span className="featured-marker">Featured</span>}
               </div>
 
