@@ -35,16 +35,6 @@ const Footer = () => {
                 <a onClick={() => scrollToSection(link.id)}>{link.label}</a>
               </li>
             ))}
-            <li>
-              <a
-                href={personalInfo.resume}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Resume
-              </a>
-            </li>
           </ul>
         </div>
 

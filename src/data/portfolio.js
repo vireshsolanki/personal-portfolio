@@ -12,7 +12,6 @@ export const personalInfo = {
   email: "vireshsolanki58@gmail.com",
   phone: "+91 7043256368",
   photo: "/photo.jpeg?v=20250728",
-  resume: "/viresh-solanki-resume.pdf", // TODO: replace public/viresh-solanki-resume.pdf with the final resume PDF
 
   social: {
     linkedin: "https://www.linkedin.com/in/viresh-solanki/",
@@ -188,7 +187,7 @@ export const projects = [
     tech: ["LangChain", "Python", "Saga Pattern", "AWS Lambda", "SQS", "DynamoDB"],
     featured: true,
     link: null,
-    repo: "https://github.com/vireshsolanki/REPLACE_WITH_REPO_NAME", // TODO: set the GitHub repo URL
+    repo: null, // TODO: set the GitHub repo URL
     type: "ai",
     personal: true
   },
@@ -198,7 +197,7 @@ export const projects = [
     tech: ["MCP", "Python", "AWS Pricing API", "Lambda", "API Gateway"],
     featured: false,
     link: null,
-    repo: "https://github.com/vireshsolanki/REPLACE_WITH_REPO_NAME", // TODO: set the GitHub repo URL
+    repo: "https://github.com/vireshsolanki/aws-calculator-mcp", // TODO: set the GitHub repo URL
     type: "ai",
     personal: true
   },
@@ -208,7 +207,7 @@ export const projects = [
     tech: ["AWS KMS", "IAM Roles Anywhere", "X.509 PKI", "Python", "ACM"],
     featured: false,
     link: null,
-    repo: "https://github.com/vireshsolanki/REPLACE_WITH_REPO_NAME", // TODO: set the GitHub repo URL
+    repo: "https://github.com/vireshsolanki/iam-roles-anywhere-automation", // TODO: set the GitHub repo URL
     type: "security",
     personal: true
   },
