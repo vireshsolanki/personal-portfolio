@@ -23,7 +23,7 @@ export const personalInfo = {
 
 export const stats = [
   { value: "2+", label: "Years Experience" },
-  { value: "$100M+", label: "Weekly Txn Volume Architected" },
+  { value: "$5M+", label: "Transaction Volume Architected" },
   { value: "10K+", label: "Concurrent Users Served" },
   { value: "4", label: "Startups Advised" },
   { value: "7", label: "Enterprise Clients" }
@@ -143,12 +143,13 @@ export const clientStats = {
 export const projects = [
   {
     title: "ExamWrap, SaaS Product",
-    description: "Built and launched ExamWrap (examwrap.vireshsaas.in), a SaaS platform helping students prepare for exams with smart study tools and practice tests. Designed and deployed the full AWS infrastructure: ECS Fargate, RDS, CloudFront, S3, with Terraform IaC and a GitHub Actions CI/CD pipeline.",
+    description: "Built and launched ExamWrap (examwrap.vireshsaas.in), a SaaS platform helping students prepare for exams with smart study tools and practice tests. Full AWS infrastructure on ECS Fargate, RDS, CloudFront, and S3, with Terraform IaC and GitHub Actions CI/CD.",
     image: "/projects/examwrap.svg",
     tech: ["AWS ECS", "RDS", "CloudFront", "S3", "Python", "Terraform"],
     featured: true,
     link: "https://examwrap.vireshsaas.in",
-    type: "product"
+    type: "product",
+    personal: true
   },
   {
     title: "Startup Cloud Foundation",
@@ -210,7 +211,7 @@ export const projects = [
   },
   {
     title: "Fault-Tolerant Payment Gateway",
-    description: "Architected a fault-tolerant, horizontally scalable payment gateway service built to sustain heavy concurrent transaction load, supporting roughly $100M in weekly transaction volume. Idempotent request handling, queue-based load leveling, and multi-AZ failover keep the system consistent and available through traffic spikes.",
+    description: "Architected a fault-tolerant, horizontally scalable payment gateway service built to sustain heavy concurrent transaction load, processing roughly $5M in overall transaction volume. Idempotent request handling, queue-based load leveling, and multi-AZ failover keep the system consistent and available through traffic spikes.",
     image: "/projects/payment-gateway.svg",
     tech: ["AWS ECS", "SQS", "RDS Multi-AZ", "ElastiCache", "API Gateway", "CloudWatch"],
     featured: true,
