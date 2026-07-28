@@ -143,11 +143,11 @@ export const clientStats = {
 export const projects = [
   {
     title: "ExamWrap, SaaS Product",
-    description: "Built and launched ExamWrap (examwrap.vireshsaas.in), a SaaS platform helping students prepare for exams with smart study tools and practice tests. Full AWS infrastructure on ECS Fargate, RDS, CloudFront, and S3, with Terraform IaC and GitHub Actions CI/CD.",
+    description: "Built and launched ExamWrap (examwarp.vireshsaas.in), a SaaS platform helping students prepare for exams with smart study tools and practice tests. Full AWS infrastructure on ECS Fargate, RDS, CloudFront, and S3, with Terraform IaC and GitHub Actions CI/CD.",
     image: "/projects/examwrap.svg",
     tech: ["AWS ECS", "RDS", "CloudFront", "S3", "Python", "Terraform"],
     featured: true,
-    link: "https://examwrap.vireshsaas.in",
+    link: "https://examwarp.vireshsaas.in",
     type: "product",
     personal: true
   },
@@ -193,7 +193,7 @@ export const projects = [
   },
   {
     title: "Zero-Loss Database Migration, AWS DMS",
-    description: "Migrated a live production database to a new environment with zero record loss using AWS Database Migration Service. Used continuous replication with change data capture (CDC) and a full row-for-row validation pass on every table before cutover, keeping the source system serving traffic the whole time.",
+    description: "Migrated a live production database to AWS with zero record loss, using DMS continuous replication (CDC) and a full row-level validation pass before cutover, with no downtime for the source system.",
     image: "/projects/db-migration.svg",
     tech: ["AWS DMS", "RDS", "CDC", "CloudWatch", "Python"],
     featured: true,
@@ -202,7 +202,7 @@ export const projects = [
   },
   {
     title: "Multi-Tenant E-Commerce Platform",
-    description: "Architected a multi-tenant, Shopify-like e-commerce platform from the ground up, tenant isolation at the data layer, a shared catalog/order service tier, and horizontally scalable compute, currently serving around 10,000 concurrent users without per-tenant infrastructure duplication.",
+    description: "Architected a multi-tenant, Shopify-like e-commerce platform with data-layer tenant isolation and horizontally scalable compute, now serving around 10,000 concurrent users without per-tenant infrastructure duplication.",
     image: "/projects/ecommerce.svg",
     tech: ["AWS ECS", "RDS Multi-AZ", "Redis", "API Gateway", "Terraform", "CloudFront"],
     featured: true,
@@ -211,7 +211,7 @@ export const projects = [
   },
   {
     title: "Fault-Tolerant Payment Gateway",
-    description: "Architected a fault-tolerant, horizontally scalable payment gateway service built to sustain heavy concurrent transaction load, processing roughly $5M in overall transaction volume. Idempotent request handling, queue-based load leveling, and multi-AZ failover keep the system consistent and available through traffic spikes.",
+    description: "Architected a fault-tolerant, horizontally scalable payment gateway handling roughly $5M in transaction volume under heavy concurrent load, using idempotent request handling, queue-based load leveling, and multi-AZ failover.",
     image: "/projects/payment-gateway.svg",
     tech: ["AWS ECS", "SQS", "RDS Multi-AZ", "ElastiCache", "API Gateway", "CloudWatch"],
     featured: true,
@@ -220,30 +220,33 @@ export const projects = [
   },
   {
     title: "Multi-Agent Workflow System",
-    description: "Built a multi-agent workflow system with human-in-the-loop checkpoints for high-stakes decisions, using the Saga pattern to keep distributed transactions consistent across agent steps. Added a todo-list-style memory layer on top of LangChain so agents track long-running tasks without re-feeding full context, cutting token usage on long sessions.",
+    description: "Built a multi-agent workflow system with human-in-the-loop checkpoints, using the Saga pattern for transaction consistency and a LangChain-based memory layer to cut token usage on long-running agent sessions.",
     image: "/projects/multi-agent.svg",
     tech: ["LangChain", "Python", "Saga Pattern", "AWS Lambda", "SQS", "DynamoDB"],
     featured: true,
     link: null, // TODO: add repo or write-up link
-    type: "ai"
+    type: "ai",
+    personal: true
   },
   {
     title: "AWS Pricing Calculator, MCP Server",
-    description: "Built an AWS pricing calculator exposed as an MCP (Model Context Protocol) server, so AI agents and assistants can query live AWS cost estimates programmatically and generate shareable links for a given architecture's cost breakdown.",
+    description: "Built an AWS pricing calculator as an MCP (Model Context Protocol) server, letting AI agents query live AWS cost estimates and generate shareable cost-breakdown links.",
     image: "/projects/mcp-pricing.svg",
     tech: ["MCP", "Python", "AWS Pricing API", "Lambda", "API Gateway"],
     featured: false,
     link: null, // TODO: add repo/demo link
-    type: "ai"
+    type: "ai",
+    personal: true
   },
   {
     title: "Self-Hosted CA, IAM Roles Anywhere Alternative",
-    description: "Designed a self-hosted certificate authority rooted in AWS KMS as a lower-cost alternative to AWS Private CA for IAM Roles Anywhere, issuing and rotating short-lived X.509 certificates so hybrid and on-premises workloads can assume IAM roles without paying for a fully managed private CA.",
+    description: "Designed a self-hosted certificate authority in AWS KMS as a lower-cost alternative to AWS Private CA for IAM Roles Anywhere, issuing short-lived X.509 certificates for hybrid workload identity.",
     image: "/projects/self-hosted-ca.svg",
     tech: ["AWS KMS", "IAM Roles Anywhere", "X.509 PKI", "Python", "ACM"],
     featured: false,
     link: null, // TODO: add repo/write-up link
-    type: "security"
+    type: "security",
+    personal: true
   },
   {
     title: "Apache Doris Real-Time Analytics Platform",
