@@ -1,0 +1,343 @@
+.resume {
+  padding: 100px var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+}
+
+.resume-inner {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.resume-heading {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.resume .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------- card ---------- */
+.resume-card {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: var(--space-2xl);
+  align-items: center;
+  padding: var(--space-xl);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+}
+
+/* ---------- clickable page-one preview ---------- */
+.resume-preview {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--champagne);
+  cursor: pointer;
+  overflow: hidden;
+  line-height: 0;
+  transition: transform var(--timing-normal) var(--ease-smooth),
+              box-shadow var(--timing-normal) var(--ease-smooth);
+}
+
+.resume-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.resume-preview:hover,
+.resume-preview:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(30, 26, 23, 0.16);
+  outline: none;
+}
+
+.resume-preview-veil {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 18px;
+  background: linear-gradient(to top, rgba(30, 26, 23, 0.55), transparent 42%);
+  opacity: 0;
+  transition: opacity var(--timing-normal) var(--ease-smooth);
+}
+
+.resume-preview:hover .resume-preview-veil,
+.resume-preview:focus-visible .resume-preview-veil {
+  opacity: 1;
+}
+
+.resume-preview-cue {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  line-height: 1;
+}
+
+/* ---------- copy ---------- */
+.resume-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.resume-eyebrow {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.resume-title {
+  font-family: 'Fira Code', monospace;
+  font-size: var(--font-h3);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.resume-copy {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-dim);
+  max-width: 46ch;
+  margin: 0;
+}
+
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: 6px;
+}
+
+.resume-download {
+  border: 1px solid var(--border);
+  padding: 14px 24px;
+}
+
+.resume-download:hover {
+  border-color: var(--gold);
+}
+
+.resume-updated {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  color: var(--text-subtle);
+}
+
+/* ---------- modal ---------- */
+.resume-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background: rgba(30, 26, 23, 0.62);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.resume-dialog {
+  display: flex;
+  flex-direction: column;
+  width: min(920px, 100%);
+  max-height: min(92vh, 1100px);
+  border-radius: var(--radius-md);
+  background: var(--champagne);
+  box-shadow: 0 30px 80px rgba(30, 26, 23, 0.34);
+  overflow: hidden;
+}
+
+.resume-dialog-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex: 0 0 auto;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+
+.resume-dialog-name {
+  font-family: 'Fira Code', monospace;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resume-dialog-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.resume-chip {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-dim);
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: all var(--timing-fast) var(--ease-smooth);
+  white-space: nowrap;
+}
+
+.resume-chip:hover {
+  color: var(--ink);
+  border-color: var(--gold);
+}
+
+.resume-chip-solid {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  border-color: transparent;
+  color: var(--ink);
+}
+
+.resume-chip-solid:hover {
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  color: var(--champagne);
+}
+
+.resume-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all var(--timing-fast) var(--ease-smooth);
+}
+
+.resume-close:hover,
+.resume-close:focus-visible {
+  color: var(--ink);
+  border-color: var(--gold);
+  outline: none;
+}
+
+/* scrolling page stack */
+.resume-pages {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background: var(--pearl);
+}
+
+.resume-page {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(30, 26, 23, 0.10);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .resume-card {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: var(--space-lg);
+  }
+
+  .resume-preview {
+    max-width: 300px;
+  }
+
+  .resume-detail {
+    align-items: center;
+  }
+
+  .resume-copy {
+    max-width: 52ch;
+  }
+
+  .resume-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .resume {
+    padding: var(--space-3xl) var(--space-md);
+  }
+
+  .resume-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .resume-overlay {
+    padding: 0;
+  }
+
+  .resume-dialog {
+    width: 100%;
+    max-height: 100vh;
+    max-height: 100dvh;
+    border-radius: 0;
+  }
+
+  .resume-dialog-name {
+    display: none;
+  }
+
+  .resume-pages {
+    padding: var(--space-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-preview,
+  .resume-preview-veil,
+  .resume-chip,
+  .resume-close {
+    transition: none;
+  }
+
+  .resume-pages {
+    scroll-behavior: auto;
+  }
+}
