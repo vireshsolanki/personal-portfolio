@@ -1,20 +1,22 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useGSAP } from '@gsap/react'
 import { personalInfo } from '../data/portfolio'
 import { gsap } from '../lib/gsap'
-import './Resume.css'
+import './ResumeButton.css'
 
 const { resume } = personalInfo
 
-const Resume = () => {
-  const sectionRef = useRef(null)
+// A nav button that opens the resume as an instant preview modal, no
+// scrolling to a dedicated section. Pages are pre-rendered images (see
+// personalInfo.resume in portfolio.js), so the modal has nothing to wait on.
+const ResumeButton = ({ className = '', label = 'Resume' }) => {
   const overlayRef = useRef(null)
   const closeRef = useRef(null)
   const triggerRef = useRef(null)
   const [open, setOpen] = useState(false)
   const [preloaded, setPreloaded] = useState(false)
 
-  // Warm the full-size pages before the click so the modal opens instantly.
   const preload = useCallback(() => {
     if (preloaded) return
     setPreloaded(true)
@@ -56,32 +58,6 @@ const Resume = () => {
 
   useGSAP(
     () => {
-      const mm = gsap.matchMedia()
-
-      mm.add('(prefers-reduced-motion: no-preference)', () => {
-        gsap.from('.resume-card, .resume-heading', {
-          autoAlpha: 0,
-          y: 20,
-          duration: 0.5,
-          stagger: 0.08,
-          immediateRender: false,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 88%',
-            once: true,
-          },
-        })
-      })
-
-      mm.add('(prefers-reduced-motion: reduce)', () => {
-        gsap.set('.resume-card, .resume-heading', { autoAlpha: 1, y: 0 })
-      })
-    },
-    { scope: sectionRef }
-  )
-
-  useGSAP(
-    () => {
       if (!open || !overlayRef.current) return
       const mm = gsap.matchMedia()
 
@@ -98,63 +74,20 @@ const Resume = () => {
   )
 
   return (
-    <section id="resume" className="resume" ref={sectionRef}>
-      <div className="resume-inner">
-        <div className="resume-heading">
-          <h2 className="section-title">Resume</h2>
-        </div>
+    <>
+      <button
+        type="button"
+        className={`resume-trigger ${className}`}
+        ref={triggerRef}
+        onClick={() => setOpen(true)}
+        onMouseEnter={preload}
+        onFocus={preload}
+        onTouchStart={preload}
+      >
+        {label}
+      </button>
 
-        <div className="resume-card">
-          <button
-            type="button"
-            className="resume-preview"
-            ref={triggerRef}
-            onClick={() => setOpen(true)}
-            onMouseEnter={preload}
-            onFocus={preload}
-            onTouchStart={preload}
-            aria-label="Open resume preview"
-          >
-            <img
-              src={resume.thumb}
-              alt="First page of Viresh Solanki's resume"
-              width="760"
-              height="984"
-              loading="lazy"
-              decoding="async"
-            />
-            <span className="resume-preview-veil">
-              <span className="resume-preview-cue">Click to preview</span>
-            </span>
-          </button>
-
-          <div className="resume-detail">
-            <span className="resume-eyebrow">PDF &middot; {resume.pages.length} pages</span>
-            <h3 className="resume-title">Solutions Architect &mdash; AWS Cloud &amp; DevOps</h3>
-            <p className="resume-copy">
-              Experience, certifications, and the systems I&rsquo;ve architected on AWS.
-              Preview it here, or take a copy with you.
-            </p>
-
-            <div className="resume-actions">
-              <button type="button" className="btn btn-primary" onClick={() => setOpen(true)}>
-                Preview resume
-              </button>
-              <a
-                href={resume.file}
-                download={resume.downloadName}
-                className="btn btn-ghost resume-download"
-              >
-                Download PDF
-              </a>
-            </div>
-
-            <span className="resume-updated">Last updated {resume.updated}</span>
-          </div>
-        </div>
-      </div>
-
-      {open && (
+      {open && createPortal(
         <div
           className="resume-overlay"
           ref={overlayRef}
@@ -212,10 +145,11 @@ const Resume = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
-    </section>
+    </>
   )
 }
 
-export default Resume
+export default ResumeButton

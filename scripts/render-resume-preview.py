@@ -44,11 +44,7 @@ def main():
             im = Image.open(src).convert("RGB")
             im.save(os.path.join(OUT_DIR, f"page-{i}.webp"), "WEBP", quality=82, method=6)
 
-        thumb = Image.open(pages[0]).convert("RGB")
-        thumb.thumbnail((760, 760 * thumb.height // thumb.width), Image.LANCZOS)
-        thumb.save(os.path.join(OUT_DIR, "thumb.webp"), "WEBP", quality=84, method=6)
-
-    print(f"Wrote {len(pages)} page(s) + thumb.webp to {OUT_DIR}")
+    print(f"Wrote {len(pages)} page(s) to {OUT_DIR}")
 
 
 if __name__ == "__main__":

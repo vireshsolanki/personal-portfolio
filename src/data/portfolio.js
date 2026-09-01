@@ -16,8 +16,6 @@ export const personalInfo = {
   resume: {
     file: "/VireshSolanki.pdf",
     downloadName: "Viresh-Solanki-Resume.pdf",
-    updated: "July 2026",
-    thumb: "/resume/thumb.webp",
     // Page images are pre-rendered from the PDF so the preview opens instantly
     // on every device. Regenerate with: npm run resume:preview
     pages: ["/resume/page-1.webp", "/resume/page-2.webp"]

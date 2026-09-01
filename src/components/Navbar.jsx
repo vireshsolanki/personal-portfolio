@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ResumeButton from './ResumeButton'
 import './Navbar.css'
 
 const Navbar = ({ activeSection }) => {
@@ -10,7 +11,6 @@ const Navbar = ({ activeSection }) => {
     { id: 'about', label: 'About' },
     { id: 'projects', label: 'Work' },
     { id: 'skills', label: 'Skills' },
-    { id: 'resume', label: 'Resume' },
     { id: 'contact', label: 'Contact' },
   ]
 
@@ -45,11 +45,17 @@ const Navbar = ({ activeSection }) => {
               </a>
             </li>
           ))}
+          <li className="nav-mobile-resume">
+            <ResumeButton />
+          </li>
         </ul>
 
-        <a onClick={() => scrollToSection('contact')} className="nav-cta">
-          Let's Talk
-        </a>
+        <div className="nav-actions">
+          <ResumeButton />
+          <a onClick={() => scrollToSection('contact')} className="nav-cta">
+            Let's Talk
+          </a>
+        </div>
 
         <div
           className={`mobile-toggle ${isOpen ? 'active' : ''}`}
