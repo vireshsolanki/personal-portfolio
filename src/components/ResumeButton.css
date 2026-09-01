@@ -1,0 +1,183 @@
+/* ---------- nav trigger ---------- */
+.resume-trigger {
+  font-family: 'Fira Code', monospace;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background var(--timing-normal) var(--ease-smooth),
+              color var(--timing-normal) var(--ease-smooth);
+  white-space: nowrap;
+}
+
+.resume-trigger:hover,
+.resume-trigger:focus-visible {
+  background: rgba(201, 169, 97, 0.12);
+  color: var(--gold-deep);
+  outline: none;
+}
+
+/* ---------- modal ---------- */
+.resume-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background: rgba(30, 26, 23, 0.62);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.resume-dialog {
+  display: flex;
+  flex-direction: column;
+  width: min(920px, 100%);
+  max-height: min(92vh, 1100px);
+  border-radius: var(--radius-md);
+  background: var(--champagne);
+  box-shadow: 0 30px 80px rgba(30, 26, 23, 0.34);
+  overflow: hidden;
+}
+
+.resume-dialog-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex: 0 0 auto;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+
+.resume-dialog-name {
+  font-family: 'Fira Code', monospace;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resume-dialog-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.resume-chip {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-dim);
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: all var(--timing-fast) var(--ease-smooth);
+  white-space: nowrap;
+}
+
+.resume-chip:hover {
+  color: var(--ink);
+  border-color: var(--gold);
+}
+
+.resume-chip-solid {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  border-color: transparent;
+  color: var(--ink);
+}
+
+.resume-chip-solid:hover {
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  color: var(--champagne);
+}
+
+.resume-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all var(--timing-fast) var(--ease-smooth);
+}
+
+.resume-close:hover,
+.resume-close:focus-visible {
+  color: var(--ink);
+  border-color: var(--gold);
+  outline: none;
+}
+
+/* scrolling page stack */
+.resume-pages {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background: var(--pearl);
+}
+
+.resume-page {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(30, 26, 23, 0.10);
+}
+
+@media (max-width: 768px) {
+  .resume-overlay {
+    padding: 0;
+  }
+
+  .resume-dialog {
+    width: 100%;
+    max-height: 100vh;
+    max-height: 100dvh;
+    border-radius: 0;
+  }
+
+  .resume-dialog-name {
+    display: none;
+  }
+
+  .resume-pages {
+    padding: var(--space-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-trigger,
+  .resume-chip,
+  .resume-close {
+    transition: none;
+  }
+
+  .resume-pages {
+    scroll-behavior: auto;
+  }
+}
